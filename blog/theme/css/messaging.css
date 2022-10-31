@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+
+.messaging
+{
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
+    
+    --left-color: #eee;
+    --left-text-color: #000;
+    --right-color: #29f;
+    --right-text-color: #fff;
+}
+
+.messaging p
+{
+    display: block;
+    position: relative;
+    padding: 0;
+    max-width: 20em;
+    font-weight: 400;
+}
+
+section#content .messaging p
+{
+    text-indent: 0;
+    margin-bottom: 1em;
+}
+
+section#content .messaging p:last-of-type
+{
+    margin-bottom: 0;
+}
+
+.messaging .message
+{
+    display: inline-block;
+    padding: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+.messaging .message:last-of-type
+{
+    margin-bottom: 0;
+}
+
+.messaging .left
+{
+    margin-right: auto;
+    padding-right: 1.5em;
+}
+
+.messaging .left .message
+{
+    color: #000;
+    color: var(--left-text-color);
+    background-color: #eee;
+    background-color: var(--left-color);
+}
+
+.messaging .left::after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 1em;
+    width: 0;
+    height: 0;
+    border-bottom: solid 0 transparent;
+    border-right: solid 1em transparent;
+    border-top: solid 1em #eee;
+    border-top: solid 1em var(--left-color);
+    border-left: solid 0 transparent;
+}
+
+.messaging .right
+{
+    margin-left: auto;
+    padding-left: 1.5em;
+    text-align: right;
+}
+
+.messaging .right .message
+{
+    text-align: left;
+    color: #fff;
+    color: #fff;
+    color: var(--right-text-color);
+    background-color: #29f;
+    background-color: #29f;
+    background-color: var(--right-color);
+}
+
+.messaging .right::after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 1em;
+    width: 0;
+    height: 0;
+    border-bottom: solid 0 transparent;
+    border-left: solid 1em transparent;
+    border-top: solid 1em #29f;
+    border-top: solid 1em var(--right-color);
+    border-right: solid 0 transparent;
+}
+
+.messaging .redacted
+{
+    color: #000;
+    background-color: #000;
+}
+
+@media print
+{
+    .messaging .left .message
+    {
+        border: solid 0.1em #eee;
+        border: solid 0.1em var(--left-color);
+    }
+    
+    .messaging .right .message
+    {
+        border: solid 0.1em #29f;
+        border: solid 0.1em var(--right-color);
+    }
+}

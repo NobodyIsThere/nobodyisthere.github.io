@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Guess the Wikipedia page given its categories</title>
+        <meta name="author" content="En Sattaur"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+        </script>
+        
+        <script type="text/javascript">
+        
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        function enableBlackout()
+        {
+            $("#list a").click(function()
+            {
+                $(this).toggleClass("redacted");
+            });
+        }
+        
+        function display(data)
+        {
+            var all_categories = data.parse.categories;
+            var categories = [];
+            for (var i=0; i<all_categories.length; ++i)
+            {
+                if (!("hidden" in all_categories[i]))
+                {
+                    categories.push(all_categories[i]);
+                }
+            }
+            shuffleArray(categories);
+            
+            for (var i=0; i<categories.length; ++i)
+            {
+                var name = categories[i]['*'].replace(/_/g, ' ');
+                $("#list").append('<li><a>' + name +'</a></li>');
+            }
+            
+            enableBlackout();
+        }
+        
+        function getCategories(page)
+        {
+            if (page.includes("wikipedia.org"))
+            {
+                page = decodeURIComponent(page.substring(page.indexOf("wiki/")+5));
+            }
+            $.ajax({
+                type: "GET",
+                url: "https://en.wikipedia.org/w/api.php?",
+                data: {
+                    'action': "parse",
+                    'page': page,
+                    'prop': "categories",
+                    'format': "json"
+                },
+                dataType: "jsonp",
+                success: function(data) { display(data); }
+            });
+        }
+        
+        $(document).ready(function() {
+            $("#form").submit(function(event){
+                $("#list").empty();
+                getCategories($("#search").val());
+                event.preventDefault();
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="decription">
+                <p>Enter a Wikipedia page&apos;s title or URL into the box below.</p>
+                <p>Then take a screenshot of the categories, and send it to the players.</p>
+                <p>Individual categories can be blacked out by clicking on them.</p>
+                <p>I recommend playing &ldquo;Guess the video game given its Wikipedia categories.&rdquo;</p>
+            </div>
+            <form id="form">
+                <input id="search"/>
+                <input type="submit" value="Go">
+            </form>
+            <div id="categories">
+                <div><a>Categories</a>:
+                <ul id="list">
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

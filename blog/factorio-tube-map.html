@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://nobodyisthere.github.io/blog/theme/css/style.css"/>
+        <link rel="icon" href="https://nobodyisthere.github.io/blog/theme/images/n_transparent.png"/>
+          <title>En Sattaur - Factorio tube map</title>
+        <meta charset="utf-8" />
+        <link href="https://nobodyisthere.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="En Sattaur Full Atom Feed" />
+        <link href="https://nobodyisthere.github.io/blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="En Sattaur Full RSS Feed" />
+
+  
+
+
+
+    <meta name="tags" content="Factorio" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://nobodyisthere.github.io/blog/">En Sattaur <strong></strong></a></h1>
+        </header>
+        <nav id="menu"><ul>
+            <li><a href="https://nobodyisthere.github.io/blog/">Blog</a></li>
+            <li><a href="https://nobodyisthere.github.io/games/">Games</a></li>
+            <li><a href="https://nobodyisthere.github.io">About</a></li>
+        </ul></nav>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://nobodyisthere.github.io/blog/factorio-tube-map.html" rel="bookmark"
+         title="Permalink to Factorio tube map"><em>Factorio</em> tube&nbsp;map</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2021-09-10T00:00:00+01:00">
+      Fri 10 September 2021
+    </time>
+    <div class="category">
+        Category: <a href="https://nobodyisthere.github.io/blog/category/games.html">Games</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://nobodyisthere.github.io/blog/tag/factorio.html">Factorio</a>    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <figure>
+    <a href="https://nobodyisthere.github.io/blog/images/factorio_tube_map.png"><img src="https://nobodyisthere.github.io/blog/images/factorio_tube_map.png" alt="A map of the train system in our Factorio game that looks like a map of the London Underground."/></a>
+    <figcaption>What did you expect?</figcaption>
+</figure>
+
+<p>This was pretty fun to&nbsp;make.</p>
+<hr>
+<p>It was also pretty interesting! I started this project thinking that it would be easy. After all, most of the hard design work had already been done for me by Transport for London (and Harry Beck). It’s basically just straight lines going through points; Inkscape can handle that easily,&nbsp;right?</p>
+<p>This project took many more hours than I ought to have spent on something so&nbsp;silly.</p>
+<p>To begin with, there was a major difference between our train layout and the Tube, and that is that Tube lines are bi-directional. You can go to any station and get a train heading in either direction. In Factorio, you don’t usually want to spend the resources to manage double the number of trains (and tracks) you’d have to place for that, so you make the trains go in big, one-way&nbsp;loops.</p>
+<p>So the first thing I realised was that my map had to communicate the direction of travel. I settled on changing the station symbols for this, rather than using arrows like the Piccadilly line does around Heathrow. The reason for this is that it’s at stations that the information is most relevant. Generally, when you want to go somewhere, the first thing you’ll do is find your nearest station on the map, and then you can work everything out from&nbsp;there.</p>
+<p>The second thing I realised was that making two or more lines bend together around 45-degree corners is an absolute nightmare. You basically need to switch to a 45-degree grid with spacing as wide as your lines, aligned with the position of the bend. I made a little tool for this in Inkscape, a widget that I could drag around and snap all my lines to, but even with this, editing the lines was a pain. It certainly wasn’t the simple “drag points around on a grid” that I had naïvely&nbsp;imagined.</p>
+<p>Finally, there are a lot of other little design choices that go into making a map like this. Under what circumstances should you use a 90-degree turn rather than a 45-degree one? At what point do you choose to bend a line? How much do you adjust the real-world distances between&nbsp;stations?</p>
+<p>I’ve always thought that the Tube map is lovely (I suspect people in Britain might be conditioned to think that), but I have even more respect for it after this silly little project. I mean, <a href="https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif">just look at it</a>. It’s&nbsp;great.</p>
+<p>Oh, and here’s a <a href="https://www.youtube.com/watch?v=bTCYdh65YRU">link to the timelapse of our session</a>, if you’re&nbsp;interested.</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Powered by <a href="https://getpelican.com">Pelican</a>, with CSS by En Sattaur. <a href="https://nobodyisthere.github.io/blog/feeds/all.atom.xml" title="En Sattaur Full Atom Feed">Atom</a> | <a href="https://nobodyisthere.github.io/blog/feeds/all.rss.xml" title="En Sattaur Full RSS Feed">RSS</a>
+                
+                </address>
+        </footer>
+</body>
+</html>

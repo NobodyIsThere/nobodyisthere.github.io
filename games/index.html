@@ -1,0 +1,135 @@
+<html lang="en">
+    <head>
+        <title>Games - Nobody</title>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="../images/n_transparent.png"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <link rel="stylesheet"
+         href="https://fonts.googleapis.com/css?family=Droid+Serif|Roboto|Roboto:900"/>
+        <script src="https://code.jquery.com/jquery-3.2.0.min.js"
+            integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://apis.google.com/js/platform.js"></script>
+        <script>
+        $(document).ready(function(){
+            var games = [
+                {
+                    name: "Masqueradeball",
+                    description: "A spooky sports game for two players.",
+                    platform: "Browser, Windows",
+                    tags: ["prototype", "sports"],
+                    image: "masqueradeball.png",
+                    url: "https://nobodyisthere.itch.io/masqueradeball"
+                },
+                {
+                    name: "Epistolary",
+                    description: "A letter-writing RPG about investigating mysteries.",
+                    platform: "Role-playing game",
+                    tags: ["role-playing"],
+                    image: "epistolary.jpg",
+                    url: "https://nobodyisthere.itch.io/epistolary"
+                },
+                {
+                    name: "Space Wars",
+                    description: "A one-page RPG based on Grant Howitt's <i>Beautiful Space Pirates</i>.",
+                    platform: "Role-playing game",
+                    tags: ["role-playing"],
+                    image: "",
+                    url: "spacewars.pdf"
+                },
+                {
+                    name: "Stock Story",
+                    description: "Opening to a visual novel. Made for the Global Game Jam 2020.",
+                    platform: "Browser",
+                    tags: ["game jam", "visual novel"],
+                    image: "vn.png",
+                    url: "stockstory/index.html"
+                },
+                {
+                    name: "Boss battle name generator",
+                    description: "Not a game, just a fun tool for generating cheesy boss names.",
+                    platform: "Browser",
+                    tags: ["not a game", "role-playing"],
+                    image: "",
+                    url: "bossnames/index.html"
+                },
+                {
+                    name: "txet",
+                    description: "A reverse text adventure.",
+                    platform: "Python script (browser version planned)",
+                    tags: ["experimental", "game jam", "interactive fiction"],
+                    image: "",
+                    url: "https://github.com/NobodyIsThere/txet"
+                },
+                {
+                    name: "Wikipedia Game",
+                    description: "Guess the Wikipedia page given its " +
+                        "categories.",
+                    platform: "Browser",
+                    tags: ["party"],
+                    image: "",
+                    url: "wikigame/index.html"
+                },
+                {
+                    name: "back",
+                    description: "Lyric generator.",
+                    platform: "Browser",
+                    tags: ["interactive fiction"],
+                    image: "",
+                    url: "back/index.html"
+                },
+                {
+                    name: "Froggest",
+                    description: "An infinite runner with rope physics. " +
+                        "Created by myself, Thryn Henderson and Henrik " +
+                         "Siljebr&aring;t.",
+                    platform: "Browser, Mac OS, Windows",
+                    tags: ["action", "game jam"],
+                    image: "https://github.com/NobodyIsThere/Froggest/raw/" +
+                        "master/repo_image.png",
+                    url: "froggest/index.html"
+                }
+            ];
+
+            for (var i=0; i<games.length; i++)
+            {
+                var tags = ''
+                for (var j=0; j<games[i].tags.length; j++)
+                {
+                    tags += '<div class="tag">' + games[i].tags[j] + '</div>';
+                }
+                var game = '<a class="game" href="' + games[i].url + '" target="_blank">' +
+                    '<h1>' + games[i].name + '</h1>' +
+                    '<div class="image_wrapper"><img src="' +
+                        (games[i].image == "" ?
+                            "../images/blank.png" : games[i].image) + '"/>' +
+                        '</div>' +
+                    '<div class="description">' + games[i].description +
+                        '</div>' +
+                    '<p class="platform">Platform: ' + games[i].platform +
+                        '</p>' +
+                    '<div class="tags">' + tags + '</div>' +
+                    '</a>';
+                $("#game_list").append(game)
+            }
+        });
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <h1>En&rsquo;s Games</h1>
+            <div id="header_links">
+                <a href="https://nobodyisthere.github.io/blog/">Blog</a>
+                <a href="#">Games</a>
+                <a href="https://nobodyisthere.github.io/">About</a>
+            </div>
+            <p>Here are some of the games I&rsquo;ve made. I hope you enjoy them!
+            Source code for most of them can be found on my <a href="https://github.com/NobodyIsThere/">github page</a>.
+            </p>
+            <div id="game_list">
+
+            </div>
+        </div>
+    </body>
+</html>

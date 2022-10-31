@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>N's Combat Tracker</title>
+        <link rel="icon" href="../../images/n_transparent.png"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="app.js"></script>
+        <svg style="display: none">
+            <defs>
+                <symbol id="heart" viewBox="0 0 64 64">
+                    <g transform="translate(.033333 .033333)">
+                        <path transform="translate(-.033333 -.033333)" d="m0 0v64h64v-64h-64zm17.969 1.2402c0.34522-0.0086713 0.69271-0.0036521 1.041 0.013672 4.3614 0.21693 8.9361 2.4994 12.99 7.5684 14.415-18.023 35.405-0.83123 30.021 19.262-6.2169 23.202-27.351 34.206-30.021 34.922-2.6708-0.71564-23.805-11.72-30.021-34.922-3.7487-13.991 5.2885-26.575 15.99-26.844z" fill="currentColor"/>
+                        <path transform="translate(-.033333 -.033333)" d="m19.01 1.2539c-11.146-0.55437-20.901 12.388-17.031 26.83 6.2169 23.202 27.351 34.206 30.021 34.922 2.6708-0.71564 23.805-11.72 30.021-34.922 5.3839-20.093-15.607-37.285-30.021-19.262-4.0541-5.069-8.6288-7.3514-12.99-7.5684z" fill="none" stroke="var(--font-color)" stroke-width="2"/>
+                    </g>
+                </symbol>
+                <symbol id="circle" viewBox="0 0 64 64">
+                    <path d="m0 0v64h64v-64h-64zm32 1.0742a30.927 30.927 0 0 1 30.926 30.926 30.927 30.927 0 0 1-30.926 30.926 30.927 30.927 0 0 1-30.926-30.926 30.927 30.927 0 0 1 30.926-30.926z" fill="currentColor"/>
+                    <circle cx="32" cy="32" r="30.927" fill="none" stroke="var(--font-color)" stroke-width="2"/>
+                </symbol>
+                <symbol id="square" viewBox="0 0 64 64">
+                    <rect x="1" y="1" width="62" height="62" fill="none" stroke="var(--font-color)" stroke-width="2"/>
+                </symbol>
+                <symbol id="shield" viewBox="0 0 64 64">
+                    <path d="m0 0v64h64v-64h-64zm32 1.1621c9.7401 5.6235 26.405 7.4434 29.445 7.4434 1e-6 25.974 1.3925 36.428-29.445 54.232-30.838-17.804-29.445-28.258-29.445-54.232 3.0399-1e-7 19.705-1.8199 29.445-7.4434z" fill="currentColor"/>
+                    <path d="m32 1.1622c-9.7401 5.6235-26.405 7.4441-29.445 7.4441 0 25.974-1.3928 36.427 29.445 54.232 30.838-17.804 29.445-28.258 29.445-54.232-3.0399 0-19.705-1.8206-29.445-7.4441z" fill="none" stroke="var(--font-color)" stroke-width="2"/>
+                </symbol>
+                <symbol id="square_checkbox" viewBox="0 0 64 64">
+                    <path d="m1 1v62h62v-62h-62zm10.848 5.1914 20.152 20.152 20.152-20.152 5.6562 5.6562-20.152 20.152 20.152 20.152-5.6562 5.6562-20.152-20.152-20.152 20.152-5.6562-5.6562 20.152-20.152-20.152-20.152 5.6562-5.6562z" fill="currentColor"/>
+                    <rect x="1" y="1" width="62" height="62" fill="none" stroke="var(--font-color)" stroke-width="2"/>
+                </symbol>
+                <symbol id="circle_checkbox" viewBox="0 0 64 64">
+                    <path d="m0 0v64h64v-64h-64zm31.924 19.039a12.961 12.961 0 0 1 0.076172 0 12.961 12.961 0 0 1 12.961 12.961 12.961 12.961 0 0 1-12.961 12.961 12.961 12.961 0 0 1-12.961-12.961 12.961 12.961 0 0 1 12.885-12.961z" fill="currentColor"/>
+                    <circle cx="32" cy="32" r="30.927" fill="none" stroke="var(--font-color)" stroke-width="2"/>
+                </symbol>
+                <symbol id="menu" viewBox="5 5 54 54">
+                    <g fill="none" stroke="currentColor" stroke-width="4">
+                        <path d="m12.397 16.752h39.207"/>
+                        <path d="m12.397 47.248h39.207"/>
+                        <path d="m12.397 32h39.207"/>
+                    </g>
+                </symbol>
+                <symbol id="triangle" viewBox="0 0 64 64">
+                    <path transform="matrix(0 1.0734 -1.0734 0 65.891 -1.9277)" d="m61.418 57.39-59.623-1e-6 29.811-51.635z" fill="currentColor"/>
+                </symbol>
+                <symbol id="cross" viewBox="5 5 54 54">
+                    <g fill="none" stroke="currentColor" stroke-width="4">
+                        <path d="m45.862 18.138-27.723 27.723"/>
+                        <path d="m18.138 18.138 27.723 27.723"/>
+                    </g>
+                </symbol>
+                <symbol id="cog" viewBox="0 0 64 64">
+                    <path d="m31.844 4.439a27.561 27.561 0 0 0-27.405 27.561 27.561 27.561 0 0 0 27.561 27.561 27.561 27.561 0 0 0 27.561-27.561 27.561 27.561 0 0 0-27.561-27.561 27.561 27.561 0 0 0-0.15618 0zm0.07176 11.842a15.718 15.718 0 0 1 0.08442 0 15.718 15.718 0 0 1 15.719 15.719 15.718 15.718 0 0 1-15.719 15.719 15.718 15.718 0 0 1-15.719-15.719 15.718 15.718 0 0 1 15.635-15.719z" fill="currentColor"/>
+                    <path id="path2065" d="m39.926 7.5399-2.8595-7.5399h-10.132l-2.8595 7.5399z" fill="currentColor"/>
+                    <g fill="currentColor">
+                        <use id="use2067" transform="matrix(1,0,0,-1,0,64)" width="100%" height="100%" fill="currentColor" xlink:href="#path2065"/>
+                        <use id="use2069" transform="rotate(90,32,32)" width="100%" height="100%" fill="currentColor" xlink:href="#path2065"/>
+                        <use id="use2071" transform="rotate(90,32,32)" width="100%" height="100%" fill="currentColor" xlink:href="#use2067"/>
+                        <use transform="rotate(45,32,32)" width="100%" height="100%" xlink:href="#path2065"/>
+                        <use transform="rotate(45,32,32)" width="100%" height="100%" xlink:href="#use2067"/>
+                        <use transform="rotate(45,32,32)" width="100%" height="100%" xlink:href="#use2069"/>
+                        <use transform="rotate(45,32,32)" width="100%" height="100%" xlink:href="#use2071"/>
+                    </g>
+                </symbol>
+                <symbol id="plus" viewBox="5 5 54 54">
+                    <g fill="none" stroke="currentColor" stroke-width="4">
+                        <path d="m32 12.397v39.207"/>
+                        <path d="m12.397 32h39.207"/>
+                    </g>
+                </symbol>
+            </defs>
+        </svg>
+    </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://nobodyisthere.github.io/blog/theme/css/style.css"/>
+        <link rel="icon" href="https://nobodyisthere.github.io/blog/theme/images/n_transparent.png"/>
+          <title>En Sattaur - A DIY dance pad for PC</title>
+        <meta charset="utf-8" />
+        <link href="https://nobodyisthere.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="En Sattaur Full Atom Feed" />
+        <link href="https://nobodyisthere.github.io/blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="En Sattaur Full RSS Feed" />
+
+  
+
+
+
+    <meta name="tags" content="Crypt of the NecroDancer" />
+    <meta name="tags" content="DIY" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://nobodyisthere.github.io/blog/">En Sattaur <strong></strong></a></h1>
+        </header>
+        <nav id="menu"><ul>
+            <li><a href="https://nobodyisthere.github.io/blog/">Blog</a></li>
+            <li><a href="https://nobodyisthere.github.io/games/">Games</a></li>
+            <li><a href="https://nobodyisthere.github.io">About</a></li>
+        </ul></nav>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://nobodyisthere.github.io/blog/a-diy-dance-pad-for-pc.html" rel="bookmark"
+         title="Permalink to A DIY dance pad for PC">A <span class="caps">DIY</span> dance pad for <span class="caps">PC</span></a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2021-08-27T00:00:00+01:00">
+      Fri 27 August 2021
+    </time>
+    <div class="category">
+        Category: <a href="https://nobodyisthere.github.io/blog/category/games.html">Games</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://nobodyisthere.github.io/blog/tag/crypt-of-the-necrodancer.html">Crypt of the NecroDancer</a>,             <a href="https://nobodyisthere.github.io/blog/tag/diy.html">DIY</a>    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-finished.jpg" alt="Eight-button dance pad with a picture from Crypt of the NecroDancer."/>
+    <figcaption>Pad image: <i>Crypt of the NecroDancer</i>.</figcaption>
+</figure>
+
+<p>I’ve been using the pictured dance pad since February, and it’s working really well! Here’s how to make one&nbsp;yourself.</p>
+<hr>
+<p>I based the pad on <a href="https://ventspace.wordpress.com/2019/02/19/danceforce-v4-diy-ddr-pad-build-thread/">Promit Roy’s four-button Velostat design</a>, but mine is made with cheaper materials since I didn’t want to spend too much. Inside, it’s mostly card and sticky tape. If you want to customise this design, I recommend checking out his blog, as he goes into some detail about the impact that different materials can&nbsp;have.</p>
+<h2>Shopping list</h2>
+<p>Units are&nbsp;millimetres.</p>
+<h3>Materials</h3>
+<ul>
+<li>Plywood for the base, 890x890 (mine’s about 8mm&nbsp;thick)</li>
+<li>3mm <span class="caps">MDF</span> for the borders, 860x30, 860x30, 890x30, 420x30,&nbsp;420x30</li>
+<li>3mm <span class="caps">MDF</span> for the centre platform,&nbsp;280x280</li>
+<li>Copper tape (preferably with conductive&nbsp;adhesive)</li>
+<li>Aluminium foil (optional: use copper tape if you have the&nbsp;money)</li>
+<li>Sticky tape (and plenty of&nbsp;it)</li>
+<li>Newspaper</li>
+<li>Velostat, enough to cover eight 280mm&nbsp;steps</li>
+<li>Copper&nbsp;wire</li>
+<li>2mm polycarbonate,&nbsp;890x890</li>
+<li>5mm-inner-diameter (M5) tee nuts&nbsp;x4</li>
+<li>5mm (M5) screws&nbsp;x4</li>
+<li>Suitable screw cups&nbsp;x4</li>
+<li>Solder</li>
+<li>A microcontroller that can act as a <span class="caps">USB</span> input device. I used a Teensy <span class="caps">LC</span>.</li>
+<li>A cable to connect the microcontroller to your <span class="caps">PC</span></li>
+<li>Spray-mount&nbsp;glue</li>
+<li>Pad image on paper or other flexible material,&nbsp;890x890</li>
+<li>Double-sided adhesive strip (for sticking the control box onto the&nbsp;pad)</li>
+<li>Non-slip material (<a href="https://www.wilko.com/en-uk/d-c-fix-matt-black-anti-slip-self-adhesive-film-45-cm-x-2m/p/0463689">I used this stuff</a>).</li>
+</ul>
+<h3>Tools</h3>
+<ul>
+<li>Tape measure and pencil, for obvious&nbsp;reasons</li>
+<li>Sandpaper</li>
+<li>Wood&nbsp;glue</li>
+<li>Clamps for holding the wood together while the glue’s drying, and for holding everything together while you’re drilling&nbsp;holes</li>
+<li>Multimeter to make sure everything’s&nbsp;working</li>
+<li>Scissors for cutting tape and&nbsp;card</li>
+<li>Soldering iron, for&nbsp;soldering</li>
+<li>Drill, 5mm, slightly-more-than-5mm&nbsp;bits</li>
+<li>Hammer, for hammering in the tee&nbsp;nuts</li>
+</ul>
+<p>I ordered all of the wood (plywood base, <span class="caps">MDF</span> borders) from two different online services. I wasn’t very happy with either of them, so I won’t share links. They cut the wood to <em>just about</em> reasonable tolerances, but if you have the tools available I definitely recommend doing this part&nbsp;yourself.</p>
+<p>You could use thicker <span class="caps">MDF</span> if you wanted. That would slightly reduce the usable area of each step, but would probably feel better. If the <span class="caps">MDF</span> was thick enough, you could fit the microcontroller in the border as well, meaning you wouldn’t have to have a box stuck to the front of the&nbsp;pad.</p>
+<p>A standard pad would have 280mm steps, but thanks to cost considerations as well as the restrictions of the sites from which I was ordering, the border extends 5mm into the play area on all sides, meaning that other than the centre platform, the steps are actually 275mm in one or both&nbsp;dimensions.</p>
+<p>Anyway, after receiving the wood, I sanded the edges to make sure I didn’t hurt myself. Then I glued the <span class="caps">MDF</span> borders on and laid out the contacts for the eight panels. Most of the area of each panel is aluminium foil (to save money) and it’s all connected with copper tape. You could use copper or aluminium for the whole thing. Note that there’s a little gap at the top of the up/forward step for the wires to come out&nbsp;of.</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-ground.jpg" alt="A piece of wood with some aluminium foil and copper tape on it. Tools, bits of newspaper, and backing from the copper tape are strewn around."/>
+    <figcaption>Please excuse the mess.</figcaption>
+</figure>
+
+<p>This is the common/ground contact. Use the multimeter to check the resistance across the various panels. You should get very low&nbsp;readings.</p>
+<p>Now you can glue down the centre panel. Use a pencil and tape measure to mark where the centre panel and panel dividers should&nbsp;go.</p>
+<p>If I’d had any tools, I would have cut smaller bits of <span class="caps">MDF</span> to divide the panels. Unfortunately, getting little bits of <span class="caps">MDF</span> cut to order was prohibitively expensive, so I rolled up newspaper and stuck bits of card together instead. It’s fine. For our purposes, there really isn’t much difference between 3mm <span class="caps">MDF</span> and rolled-up&nbsp;newspaper.</p>
+<p>Anyway, I stuck the newspaper down with sticky tape, don’t judge&nbsp;me.</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-onecontact.jpg" alt="The border and centre platform are in place. The bottom step&rsquo;s sensor is set up."/>
+    <figcaption>One down, seven to go.</figcaption>
+</figure>
+
+<p>Each step needs a nearby contact. I made a double layer of copper tape next to each piece of aluminium foil. If I was doing it again, I’d put them near the edge of the pad, and take the wires around the outside of the pad, instead of routing the wires between&nbsp;steps.</p>
+<p>The next step is to cover each piece of aluminium foil in Velostat; then it’s time to make the upper part of each step’s sensor. I used cereal box card for this, but something a little less flexible would be better. Whatever material you use, cut a piece large enough to cover most of the Velostat, cover the bottom side with copper tape, and wrap a bit of copper tape around to the top side to make wiring easier. I don’t have a photo for this, so here’s a diagram&nbsp;instead.</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-sensordiagram.png" alt="See caption."/>
+    <figcaption>From bottom to top: the common contact, Velostat, copper tape, card. Part of the copper tape extends around the top of the card to create a contact to use later.</figcaption>
+</figure>
+
+<p>Now just connect the exposed copper tape bits to the contacts you made before, making sure that nothing below the Velostat layer connects directly to anything&nbsp;above.</p>
+<p>Solder on some wires, route them through the pad and out of the gap you left in the wood border. Note that as well as a wire for each step, you’ll need to solder a wire to the common contact as well. Just put in a short one at the top of the pad, near the&nbsp;hole.</p>
+<p>If you’re as cheap and/or as lazy as me, you’re probably thinking “hey, this copper tape has conductive adhesive; can’t I just stick the wires down with the tape instead of soldering&nbsp;them?”</p>
+<p>Don’t do that. The connection will be unreliable and you’ll have a bad&nbsp;time.</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-wiring.jpg" alt="Pad with wires extending from each step."/>
+    <figcaption>Connect the wires to the contacts you made for each step. If you have the money and/or the wire lying around already, you could use a different colour for each step to make debugging easier.</figcaption>
+</figure>
+
+<p>Nearly there! Stick everything down with tape. No need to tape every edge of every sensor, but you can if you&nbsp;want.</p>
+<p>You should probably test your pad now. Using the multimeter, test each step in turn by measuring the resistance between the common contact and each step contact (or each step’s corresponding wire). When you put your foot on the card, you should see a big drop in resistance (you should see units of Ohms with your foot on the card, and tens or hundreds or more&nbsp;without).</p>
+<p>Clamp the polycarbonate sheet onto the pad. Don’t remove the protective film yet. Make sure everything is aligned properly, then drill 5mm holes through the&nbsp;corners.</p>
+<p>Take the polycarbonate off (remembering which way round it went) and expand the holes slightly with your slightly-more-than-5mm drill bit. You just need to make the holes wide enough that you can hammer in your tee nuts. Then turn the pad over and do&nbsp;that!</p>
+<p>Finally, turn the pad the right way up again, put the polycarbonate back, and screw it on with the screws and screw&nbsp;cups.</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-screw.jpg" alt="Close-up of the corner of the pad. The polycarbonate is screwed onto the wood."/>
+    <figcaption>Using screw cups means you&#8217;re less likely to crack the polycarbonate, and, more importantly, you&#8217;re less likely to injure yourself when playing.</figcaption>
+</figure>
+
+<p>It’s finally time to hook up the microcontroller. Solder your wires and plug it into a <span class="caps">PC</span>. For the Teensy, I connected the common wire to ground (<span class="caps">GND</span>), and the step wires to pins&nbsp;14–21.</p>
+<p><a href="https://gist.github.com/NobodyIsThere/6ec8de310754f25949cb2c8392ffa630">Here’s the code I used</a>, which relies on the Teensy being set up to emulate a keyboard (Tools &gt; <span class="caps">USB</span> Type &gt; Keyboard in the Arduino <span class="caps">IDE</span>). It’s a slight modification of Promit’s, as I wanted debounce. If you’re just going to be playing <em>Stepmania</em>, you don’t need to bother with the debounce code (the game can do it for you), but you’ll probably need it if you want to play anything&nbsp;else.</p>
+<p>I bound the eight buttons to the arrow keys, enter, backspace, control, and shift. Make sure those work properly. Have a go, play some games, tweak the code, make sure it all&nbsp;works.</p>
+<p>Now it’s time for the final touches. Remove the protective film and spray-mount the image onto the back of the polycarbonate. Put all the exposed electronics in a box. I used a couple of adhesive strips I got with my doorbell to stick the box to the front of the&nbsp;pad.</p>
+<p>Finally, you’ll probably want to glue some non-slip material to the bottom. I used the wood glue for this and it worked&nbsp;fine.</p>
+<p>Congratulations, your pad is&nbsp;complete!</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/dancepad-finished.jpg" alt="Completed dance pad."/>
+    <figcaption>Pad image: <i>Crypt of the NecroDancer</i>.</figcaption>
+</figure>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Powered by <a href="https://getpelican.com">Pelican</a>, with CSS by En Sattaur. <a href="https://nobodyisthere.github.io/blog/feeds/all.atom.xml" title="En Sattaur Full Atom Feed">Atom</a> | <a href="https://nobodyisthere.github.io/blog/feeds/all.rss.xml" title="En Sattaur Full RSS Feed">RSS</a>
+                
+                </address>
+        </footer>
+</body>
+</html>

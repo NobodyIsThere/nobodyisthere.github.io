@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "FROGGEST_WEB.data.unityweb",
+"asmCodeUrl": "FROGGEST_WEB.asm.code.unityweb",
+"asmMemoryUrl": "FROGGEST_WEB.asm.memory.unityweb",
+"asmFrameworkUrl": "FROGGEST_WEB.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}

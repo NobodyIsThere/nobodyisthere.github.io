@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700,700i|Open+Sans:300,300i,400,400i,700,700i');
+
+div.entry-content .rpg
+{
+    background-color: #fffae6;
+    padding: 2em;
+    margin-bottom: 1em;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.rpg > *
+{
+    font-size: 0.9rem;
+}
+
+.rpg h1, .rpg h2, .rpg h3, .rpg h4, .rpg h5, .rpg h6
+{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-variant: small-caps;
+}
+
+.rpg h2, .rpg h3, .rpg h4, .rpg h5
+{
+    color: #58180d;
+}
+
+.rpg h1:first-child, .rpg h2:first-child, .rpg h3:first-child, .rpg h4:first-child, .rpg h5:first-child, .rpg h6:first-child
+{
+    margin-top: 0;
+}
+
+.rpg h1
+{
+    font-size: 3em;
+    font-variant: unset;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.rpg h2
+{
+    font-size: 2.5em;
+    letter-spacing: 0.05em;
+}
+
+.rpg h3
+{
+    font-size: 2em;
+    letter-spacing: 0.05em;
+}
+
+.rpg h2:first-child, .rpg h3:first-child
+{
+    margin-top: 0;
+}
+
+.rpg h4
+{
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+    border-bottom: solid 0.1em #c9ad6a;
+}
+
+.rpg h5
+{
+    font-size: 1.5rem;
+}
+
+.rpg h6
+{
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.025em;
+}
+
+.rpg blockquote
+{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #dec;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-top: solid 0.2em #222;
+    border-bottom: solid 0.2em #222;
+    box-shadow: 0 0 0.5em #5555;
+}
+
+.rpg p
+{
+    margin: 0;
+    line-height: 1.5em;
+    font-weight: 400;
+}
+
+.rpg .trait
+{
+    display: inline;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.rpg p + p
+{
+    text-indent: 1.5em;
+}
+
+.rpg p.rarity
+{
+    font-style: italic;
+    margin-top: -0.25em;
+    margin-bottom: 0.5em;
+}
+
+.rpg p.rarity + p
+{
+    text-indent: 0;
+}
+
+.rpg ul, .rpg ol
+{
+    list-style-position: outside;
+    line-height: 1.5em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+.rpg > h2+p:first-of-type:first-letter
+{
+    font-size: 4.75em;
+    margin: 0.1em 0 -0.05em 0;
+    padding: 0 0.05em 0 0;
+    height: 0.7em;
+    line-height: 0.85em;
+    float: left;
+    color: #252;
+}
+
+.rpg > h2+p:first-of-type:first-line
+{
+    font-variant: small-caps;
+}
+
+.rpg table
+{
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    border-spacing: 0;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.rpg p + table
+{
+    margin-top: 2em;
+}
+
+.rpg table td, .rpg table th
+{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+.rpg table tbody tr:nth-of-type(odd)
+{
+    background-color: #dec;
+}
+
+.rpg table .c
+{
+    text-align: center;
+}
+
+div.entry-content .rpg .stat-block-dnd
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media(min-width: 40em)
+{
+    div.entry-content .rpg .stat-block-dnd
+    {
+        columns: 2;
+    }
+}
+
+.rpg .stat-block-dnd h1
+{
+    font-size: 1.5rem;
+    font-family: 'Libre Baskerville', serif;
+    font-variant: small-caps;
+    text-transform: none;
+    color: #58180d;
+    text-align: left;
+}
+
+.rpg .stat-block-dnd h2
+{
+    font-size: 1em;
+    font-variant: none;
+    font-weight: normal;
+    font-style: italic;
+    color: #222;
+    margin-top: -0.5em;
+}
+
+.rpg .stat-block-dnd h3
+{
+    font-size: 1.25rem;
+    font-weight: normal;
+    border-bottom: solid 0.1em #58180d;
+    letter-spacing: 0;
+}
+
+.rpg .stat-block-dnd hr
+{
+    border-bottom: solid 0.2em #58180d;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+.rpg .stat-block-dnd .stat
+{
+    color: #58180d;
+    font-weight: bold;
+}
+
+.rpg .stat-block-dnd .ability-scores
+{
+    text-align: center;
+    table-layout: fixed;
+    margin: 0;
+}
+
+.rpg .stat-block-dnd .ability-scores th
+{
+    color: #58180d;
+}
+
+.rpg .stat-block-dnd .ability-scores tr
+{
+    background-color: transparent;
+}
+
+.rpg .stat-block-dnd p
+{
+    text-indent: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+@media print
+{
+    .rpg
+    {
+        padding-left: 0;
+        padding-right: 0;
+        
+        background: none;
+        
+        border-top: solid 0.2em #500;
+        border-bottom: solid 0.2em #500;
+        margin-top: 1em;
+    }
+    
+    .rpg table td, .rpg table th
+    {
+        border-bottom: solid 0.1em #050;
+    }
+    
+    .rpg .stat-block-dnd
+    {
+        columns: 1;
+    }
+    
+    .rpg .stat-block-dnd table td, .rpg .stat-block-dnd table th
+    {
+        border: none;
+    }
+}
