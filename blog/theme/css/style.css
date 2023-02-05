@@ -145,6 +145,24 @@ strong
     font-weight: var(--bold-font-weight);
 }
 
+div.entry-content .highlight
+{
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+}
+
+pre
+{
+    padding: 1em;
+    max-height: 20em;
+    overflow: auto;
+    
+    background-color: #eee;
+}
+
 div.entry-content hr
 {
     width: 10rem;
