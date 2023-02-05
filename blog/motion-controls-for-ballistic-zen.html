@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://nobodyisthere.github.io/blog/theme/css/style.css"/>
+        <link rel="icon" href="https://nobodyisthere.github.io/blog/theme/images/n_transparent.png"/>
+          <title>En Sattaur - Motion controls for Ballistic Zen</title>
+        <meta charset="utf-8" />
+        <link href="https://nobodyisthere.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="En Sattaur Full Atom Feed" />
+        <link href="https://nobodyisthere.github.io/blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="En Sattaur Full RSS Feed" />
+
+  
+
+
+
+    <meta name="tags" content="Ballistic Zen" />
+    <meta name="tags" content="controls" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://nobodyisthere.github.io/blog/">En Sattaur <strong></strong></a></h1>
+        </header>
+        <nav id="menu"><ul>
+            <li><a href="https://nobodyisthere.github.io/blog/">Blog</a></li>
+            <li><a href="https://nobodyisthere.github.io/games/">Games</a></li>
+            <li><a href="https://nobodyisthere.github.io">About</a></li>
+        </ul></nav>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://nobodyisthere.github.io/blog/motion-controls-for-ballistic-zen.html" rel="bookmark"
+         title="Permalink to Motion controls for Ballistic Zen">Motion controls for <em>Ballistic&nbsp;Zen</em></a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2023-02-05T00:00:00+00:00">
+      Sun 05 February 2023
+    </time>
+    <div class="category">
+        Category: <a href="https://nobodyisthere.github.io/blog/category/games.html">Games</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://nobodyisthere.github.io/blog/tag/ballistic-zen.html">Ballistic Zen</a>,             <a href="https://nobodyisthere.github.io/blog/tag/controls.html">controls</a>    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <figure>
+    <iframe class="embed_iframe" scrolling="no" allowfullscreen="allowfullscreen" mozallowfullscreen="" webkitallowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0" src="https://www.youtube.com/embed/1NMBOCpH1e8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
+<p>A close friend of mine just released a game! You should probably check it out if you like&nbsp;games.</p>
+<blockquote>
+<p><strong>Ballistic Zen</strong> is a first person open world platformer with a unique movement system based on old-school air-strafing, updated for the modern age. Simple to pick up but difficult to master, <strong>Ballistic Zen</strong> celebrates the joy and meditation of movement in&nbsp;games.</p>
+</blockquote>
+<p>Of course, I decided to play it with the Wii Balance&nbsp;Board.</p>
+<hr>
+<p>Controls and controllers have always been a passion of mine, so when a colleague decided to sell his Balance Board, I immediately seized the opportunity. My glee was then almost-as-immediately shattered when I realised that opportunities to actually use the thing would be few and far between. (Playing <em>Wii Fit</em> in 2022, I found&nbsp;it…disappointing.)</p>
+<p>Anyway, when Alex finally published <em>Ballistic Zen</em>, I knew that the time had&nbsp;come.</p>
+<p>The final control scheme I ended up with uses the Balance Board and Wiimote/Nunchuk in concert. At first, I wanted to use the Balance Board on its own, but the game requires too many fast direction changes, and I couldn’t keep up without falling over. Using multiple sensitivity zones (that is, making the edges of the board more sensitive than the centre) helped – but in the end I had to couple it with the&nbsp;Wiimote.</p>
+<p>Watching the video, you’ll notice that you turn much faster using the Wiimote and Nunchuk than you do using the Balance Board, and might reasonably ask if the Balance Board is really necessary. Well, it isn’t. But it isn’t completely useless, either. I did try a control scheme without the Balance Board, and though it worked, it lacked some of the fine control afforded by the full scheme. In short, it was more awkward. With any motion control scheme, the more sensors you use, the more stable and reliable the signal, and in this case using the Wiimote, Nunchuk and Balance Board together gave the best&nbsp;result.</p>
+<p>The B and Z (trigger) buttons are used for tight turns, inspired by <em>Ballistic Zen</em>’s actual gamepad control&nbsp;scheme.</p>
+<p>Here’s the button&nbsp;mapping:</p>
+<figure>
+    <img src="https://nobodyisthere.github.io/blog/images/bz_controls.png"/>
+    <figcaption>Button mapping. Start and stop by raising both the Wiimote and the Nunchuk. Turn right by raising the Nunchuk and/or leaning right. Turn left by raising the Wiimote and/or leaning left.</figcaption>
+</figure>
+
+<p>And here’s the <a href="http://andersmalmgren.github.io/FreePIE/">FreePIE</a>&nbsp;script:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">armsUp</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">wm</span><span class="o">.</span><span class="n">acceleration</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">lift_arms_threshold</span> <span class="ow">and</span> <span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">acceleration</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">lift_arms_threshold</span>
+
+<span class="k">def</span> <span class="nf">shouldClick</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">arms_currently_up</span>
+    <span class="k">global</span> <span class="n">last_click_time</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">DPadDown</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">if</span> <span class="n">armsUp</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">arms_currently_up</span> <span class="ow">and</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">last_click_time</span> <span class="o">&gt;</span> <span class="n">click_debounce</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">arms_currently_up</span><span class="p">:</span>
+            <span class="n">arms_currently_up</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">last_click_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">arms_currently_up</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="k">def</span> <span class="nf">shouldJump</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">maprange</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">imin</span><span class="p">,</span> <span class="n">imax</span><span class="p">,</span> <span class="n">omin</span><span class="p">,</span> <span class="n">omax</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">omax</span><span class="o">-</span><span class="n">omin</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="nb">input</span><span class="o">-</span><span class="n">imin</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">imax</span><span class="o">-</span><span class="n">imin</span><span class="p">))</span> <span class="o">+</span> <span class="n">omin</span>
+
+<span class="k">def</span> <span class="nf">deltaX</span><span class="p">(</span><span class="n">centre_of_gravity</span><span class="p">):</span>
+    <span class="n">turn</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">B</span><span class="p">)):</span>
+        <span class="n">turn</span> <span class="o">+=</span> <span class="n">turn_enhancer_strength</span>
+        <span class="k">return</span> <span class="n">turn</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">NunchuckButtons</span><span class="o">.</span><span class="n">Z</span><span class="p">)):</span>
+        <span class="n">turn</span> <span class="o">-=</span> <span class="n">turn_enhancer_strength</span>
+        <span class="k">return</span> <span class="n">turn</span>
+    <span class="n">turn</span> <span class="o">+=</span> <span class="n">maprange</span><span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">acceleration</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lift_arms_threshold</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arm_steering_sensitivity</span><span class="p">)</span>
+    <span class="n">turn</span> <span class="o">-=</span> <span class="n">maprange</span><span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">acceleration</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lift_arms_threshold</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arm_steering_sensitivity</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">centre_of_gravity</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">bb_deadzone</span><span class="p">):</span>
+        <span class="n">turn</span> <span class="o">+=</span> <span class="n">centre_of_gravity</span> <span class="o">*</span> <span class="n">bb_sensitivity</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">stick</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">nunchuck_deadzone</span><span class="p">):</span>
+        <span class="n">turn</span> <span class="o">+=</span> <span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">stick</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">nunchuck_sensitivity</span>
+    <span class="k">return</span> <span class="n">turn</span>
+
+<span class="k">def</span> <span class="nf">deltaY</span><span class="p">(</span><span class="n">stick</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">stick</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">nunchuck_deadzone</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="n">stick</span> <span class="o">*</span> <span class="n">nunchuck_sensitivity</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">starting</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">time</span>
+    <span class="n">bb</span> <span class="o">=</span> <span class="n">wiimote</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">balanceBoard</span>
+    <span class="n">wm</span> <span class="o">=</span> <span class="n">wiimote</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nunchuck_sensitivity</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">nunchuck_deadzone</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">bb_deadzone</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">bb_sensitivity</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">bb_deadzone_2</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">bb_sensitivity_2</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="n">lift_arms_threshold</span> <span class="o">=</span> <span class="o">-</span><span class="mf">6.5</span>
+    <span class="n">turn_enhancer_strength</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">arm_steering_sensitivity</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">click_debounce</span> <span class="o">=</span> <span class="mf">0.25</span>
+    <span class="n">last_click_time</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">arms_currently_up</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">mouse</span><span class="o">.</span><span class="n">deltaX</span> <span class="o">=</span> <span class="n">deltaX</span><span class="p">(</span><span class="n">bb</span><span class="o">.</span><span class="n">centerOfGravity</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">deltaY</span> <span class="o">=</span> <span class="n">deltaY</span><span class="p">(</span><span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">stick</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">setButton</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shouldClick</span><span class="p">())</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">setButton</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">shouldJump</span><span class="p">())</span>
+<span class="n">keyboard</span><span class="o">.</span><span class="n">setPressed</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">wm</span><span class="o">.</span><span class="n">nunchuck</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">NunchuckButtons</span><span class="o">.</span><span class="n">C</span><span class="p">))</span>
+<span class="n">keyboard</span><span class="o">.</span><span class="n">setPressed</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">Escape</span><span class="p">,</span> <span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">Plus</span><span class="p">))</span>
+<span class="n">keyboard</span><span class="o">.</span><span class="n">setPressed</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">Tab</span><span class="p">,</span> <span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">Minus</span><span class="p">))</span>
+<span class="n">keyboard</span><span class="o">.</span><span class="n">setPressed</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">One</span><span class="p">))</span>
+<span class="n">keyboard</span><span class="o">.</span><span class="n">setPressed</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">Two</span><span class="p">))</span>
+<span class="n">keyboard</span><span class="o">.</span><span class="n">setPressed</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="n">wm</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">button_down</span><span class="p">(</span><span class="n">WiimoteButtons</span><span class="o">.</span><span class="n">Home</span><span class="p">))</span>
+</pre></div>
+
+
+<p><em>Ballistic Zen</em> is available on <a href="https://store.steampowered.com/app/1966930/Ballistic_Zen/">Steam</a> and on <a href="https://footnotesforthefuture.itch.io/ballistic-zen">itch.io</a>.</p>
+<p>Oh, and if you like this kind of thing, check out <a href="https://www.printables.com/model/382012-ballistic-zen-controller">BadRAM’s custom <em>Ballistic Zen</em> controller</a>.</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Powered by <a href="https://getpelican.com">Pelican</a>, with CSS by En Sattaur. <a href="https://nobodyisthere.github.io/blog/feeds/all.atom.xml" title="En Sattaur Full Atom Feed">Atom</a> | <a href="https://nobodyisthere.github.io/blog/feeds/all.rss.xml" title="En Sattaur Full RSS Feed">RSS</a>
+                
+                </address>
+        </footer>
+</body>
+</html>
