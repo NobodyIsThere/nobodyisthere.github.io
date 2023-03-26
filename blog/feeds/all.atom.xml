@@ -27,23 +27,23 @@
 &lt;/figure&gt;
 
 &lt;p&gt;And here’s the &lt;a href="http://andersmalmgren.github.io/FreePIE/"&gt;FreePIE&lt;/a&gt;&amp;nbsp;script:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;armsUp&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;armsUp&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acceleration&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;lift_arms_threshold&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nunchuck&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acceleration&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;lift_arms_threshold&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;shouldClick&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;arms_currently_up&lt;/span&gt;
     &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;last_click_time&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;buttons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button_down&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WiimoteButtons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DPadDown&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;armsUp&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;last_click_time&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;click_debounce&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
         &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;arms_currently_up&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+            &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
             &lt;span class="n"&gt;last_click_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+        &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;shouldJump&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;buttons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button_down&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WiimoteButtons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -87,7 +87,7 @@
     &lt;span class="n"&gt;arm_steering_sensitivity&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
     &lt;span class="n"&gt;click_debounce&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.25&lt;/span&gt;
     &lt;span class="n"&gt;last_click_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+    &lt;span class="n"&gt;arms_currently_up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
 
 &lt;span class="n"&gt;mouse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deltaX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;deltaX&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;centerOfGravity&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;mouse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deltaY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;deltaY&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nunchuck&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stick&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -99,11 +99,10 @@
 &lt;span class="n"&gt;keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setPressed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;buttons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button_down&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WiimoteButtons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;One&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setPressed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;buttons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button_down&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WiimoteButtons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Two&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setPressed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;buttons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button_down&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WiimoteButtons&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Home&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;em&gt;Ballistic Zen&lt;/em&gt; is available on &lt;a href="https://store.steampowered.com/app/1966930/Ballistic_Zen/"&gt;Steam&lt;/a&gt; and on &lt;a href="https://footnotesforthefuture.itch.io/ballistic-zen"&gt;itch.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Oh, and if you like this kind of thing, check out &lt;a href="https://www.printables.com/model/382012-ballistic-zen-controller"&gt;BadRAM’s custom &lt;em&gt;Ballistic Zen&lt;/em&gt; controller&lt;/a&gt;.&lt;/p&gt;</content><category term="Ballistic Zen"></category><category term="controls"></category></entry><entry><title>N’s Combat Tracker Help</title><link href="https://nobodyisthere.github.io/blog/ns-combat-tracker-help.html" rel="alternate"></link><published>2022-10-24T00:00:00+01:00</published><updated>2022-10-24T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2022-10-24:/blog/ns-combat-tracker-help.html</id><summary type="html">&lt;p&gt;This is the help page for my &lt;a href="https://nobodyisthere.itch.io/combat-tracker"&gt;combat tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Oh, and if you like this kind of thing, check out &lt;a href="https://www.printables.com/model/382012-ballistic-zen-controller"&gt;BadRAM’s custom &lt;em&gt;Ballistic Zen&lt;/em&gt; controller&lt;/a&gt;.&lt;/p&gt;</content><category term="Games"></category><category term="Ballistic Zen"></category><category term="controls"></category></entry><entry><title>N’s Combat Tracker Help</title><link href="https://nobodyisthere.github.io/blog/ns-combat-tracker-help.html" rel="alternate"></link><published>2022-10-24T00:00:00+01:00</published><updated>2022-10-24T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2022-10-24:/blog/ns-combat-tracker-help.html</id><summary type="html">&lt;p&gt;This is the help page for my &lt;a href="https://nobodyisthere.itch.io/combat-tracker"&gt;combat tracker&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="navigation"&gt;
     &lt;ul&gt;
@@ -119,7 +118,7 @@
     &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;h2&gt;&lt;a id="Getting_started"&gt;&lt;/a&gt;Getting started&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Getting_started"&gt;&lt;/a&gt;Getting&amp;nbsp;started&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Add participants one at a time by typing their names in the &amp;#8220;New participant&amp;#8221; box and pressing Enter. Once added, participants&amp;#8217; initiative …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;This is the help page for my &lt;a href="https://nobodyisthere.itch.io/combat-tracker"&gt;combat tracker&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
@@ -137,7 +136,7 @@
     &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;h2&gt;&lt;a id="Getting_started"&gt;&lt;/a&gt;Getting started&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Getting_started"&gt;&lt;/a&gt;Getting&amp;nbsp;started&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Add participants one at a time by typing their names in the &amp;#8220;New participant&amp;#8221; box and pressing Enter. Once added, participants&amp;#8217; initiative scores are shown next to their&amp;nbsp;names.&lt;/li&gt;
 &lt;li&gt;You can edit most fields, such as names, initiative scores and field values by clicking on&amp;nbsp;them.&lt;/li&gt;
@@ -148,21 +147,26 @@
 &lt;li&gt;Click on &amp;#8220;Manage participants&amp;#8221; to remove or reorder&amp;nbsp;participants.&lt;/li&gt;
 &lt;li&gt;Use the die roller at the bottom right of the screen to roll dice. Type a die roll (e.g. &amp;#8220;2d6+3&amp;#8221;) and press enter. There is no way to view previous rolls after they&amp;#8217;ve&amp;nbsp;disappeared.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;&lt;a id="Tips_and_tricks"&gt;&lt;/a&gt;Tips and tricks&lt;/h2&gt;
-&lt;h3&gt;&lt;a id="Die_rolls"&gt;&lt;/a&gt;Die rolls&lt;/h3&gt;
-&lt;p&gt;You can use die rolls almost anywhere you might want to input a number. They usually take the form [Amount]d[Type]+[Modifier], but you can leave parts of this template out.
-- If you leave out the Amount, it is assumed to be 1, so &amp;#8220;d6&amp;#8221; will roll 1d6.
-- If you leave out the Type, it is assumed to be whatever your favourite die type is (by default it&amp;#8217;s a d20. You can change this in Settings).
-- If you leave out the Modifier, it is assumed to be zero.
-This means that for standard 1d20 rolls with a modifier, you can just type &amp;#8220;+3&amp;#8221;, for example, to roll &amp;#8220;1d20+3&amp;#8221;. Try it in the Initiative field or the die roller.
+&lt;h2&gt;&lt;a id="Tips_and_tricks"&gt;&lt;/a&gt;Tips and&amp;nbsp;tricks&lt;/h2&gt;
+&lt;h3&gt;&lt;a id="Die_rolls"&gt;&lt;/a&gt;Die&amp;nbsp;rolls&lt;/h3&gt;
+&lt;p&gt;You can use die rolls almost anywhere you might want to input a number. They usually take the form [Amount]d[Type]+[Modifier], but you can leave parts of this template&amp;nbsp;out.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you leave out the Amount, it is assumed to be 1, so &amp;#8220;d6&amp;#8221; will roll&amp;nbsp;1d6.&lt;/li&gt;
+&lt;li&gt;If you leave out the Type, it is assumed to be whatever your favourite die type is (by default it&amp;#8217;s a d20. You can change this in&amp;nbsp;Settings).&lt;/li&gt;
+&lt;li&gt;If you leave out the Modifier, it is assumed to be&amp;nbsp;zero.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This means that for standard 1d20 rolls with a modifier, you can just type &amp;#8220;+3&amp;#8221;, for example, to roll &amp;#8220;1d20+3&amp;#8221;. Try it in the Initiative field or the die roller.
 You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;die.&lt;/p&gt;
-&lt;h3&gt;&lt;a id="Adding_participants"&gt;&lt;/a&gt;Adding participants&lt;/h3&gt;
+&lt;h3&gt;&lt;a id="Adding_participants"&gt;&lt;/a&gt;Adding&amp;nbsp;participants&lt;/h3&gt;
 &lt;p&gt;You can add multiple participants at the same time by typing e.g. &amp;#8220;Wolf x4&amp;#8221; in the &amp;#8220;New participant&amp;#8221; box. You can use die rolls here, for example &amp;#8220;Wolf&amp;nbsp;xd6&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;You can set an a participant’s initiative in the “New participant” box. Just type the initiative first, e.g. “15&amp;nbsp;Bear”.&lt;/p&gt;
+&lt;p&gt;You can also enter the initiative after the name, by using a comma, e.g. “Bear,&amp;nbsp;15”.&lt;/p&gt;
+&lt;p&gt;And you can combine the above, for example “d20+3 Wolf x2d4”, or “Wolf x2d4,&amp;nbsp;d20+3”.&lt;/p&gt;
 &lt;p&gt;You can add all participants from another encounter using the &amp;#8220;Encounters&amp;#8221; (three horizontal lines) menu. For example, you could have an encounter with all your player characters in it, and import that into every encounter you run instead of typing out your players&amp;#8217; names every time. When importing participants, their information is &lt;em&gt;copied&lt;/em&gt; to the new encounter: changing values in one encounter will not affect the&amp;nbsp;other.&lt;/p&gt;
-&lt;h3&gt;&lt;a id="Custom_fields"&gt;&lt;/a&gt;Custom fields&lt;/h3&gt;
+&lt;h3&gt;&lt;a id="Custom_fields"&gt;&lt;/a&gt;Custom&amp;nbsp;fields&lt;/h3&gt;
 &lt;p&gt;Click on the &amp;#8220;Fields&amp;#8221; button to manage your custom fields. Fields can be turned on or off per encounter using the check boxes on the left. You can also choose to show or hide&amp;nbsp;labels.&lt;/p&gt;
 &lt;p&gt;Fields have three modes of&amp;nbsp;operation.&lt;/p&gt;
-&lt;h4&gt;Value mode&lt;/h4&gt;
+&lt;h4&gt;Value&amp;nbsp;mode&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;The field stores a numeric&amp;nbsp;value.&lt;/li&gt;
 &lt;li&gt;The value can have a maximum, which is set by typing e.g.&amp;nbsp;&amp;#8220;24/30&amp;#8221;.&lt;/li&gt;
@@ -170,12 +174,12 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;li&gt;You can easily add and subtract from the current value: just click on the field, replace the text with e.g. &amp;#8220;+4&amp;#8221;, and press Enter. This will add 4 to the current&amp;nbsp;value.&lt;/li&gt;
 &lt;li&gt;You can use die rolls here, for example &amp;#8220;2d10+3/&amp;#8221; to roll 2d10+3 and set that as the current and maximum value, or &amp;#8220;+d4&amp;#8221; to add a d4 to the current&amp;nbsp;value.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Check box mode&lt;/h4&gt;
+&lt;h4&gt;Check box&amp;nbsp;mode&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;This mode is enabled when the &amp;#8220;check box&amp;#8221; button is pressed in the &amp;#8220;Fields&amp;#8221;&amp;nbsp;editor.&lt;/li&gt;
 &lt;li&gt;The field&amp;#8217;s value can then be either set or not set. Change it by clicking on&amp;nbsp;it.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Text mode&lt;/h4&gt;
+&lt;h4&gt;Text&amp;nbsp;mode&lt;/h4&gt;
 &lt;p&gt;Fields can store arbitrary text, but I recommend that you use Notes for that&amp;nbsp;instead.&lt;/p&gt;
 &lt;h3&gt;&lt;a id="Notes"&gt;&lt;/a&gt;Notes&lt;/h3&gt;
 &lt;ul&gt;
@@ -184,18 +188,18 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;li&gt;Die rolls you type here will be converted into clickable&amp;nbsp;buttons.&lt;/li&gt;
 &lt;li&gt;Modifiers on their own (e.g. +3) will &lt;em&gt;not&lt;/em&gt; be converted into buttons, as this can be confusing. Type e.g. &amp;#8220;d20+3&amp;#8221; if you want a&amp;nbsp;button.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;&lt;a id="Status_effects"&gt;&lt;/a&gt;Status effects&lt;/h3&gt;
+&lt;h3&gt;&lt;a id="Status_effects"&gt;&lt;/a&gt;Status&amp;nbsp;effects&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Click on the &amp;#8220;+&amp;#8221; next to a participant to add status effects. Choose from the list or type your&amp;nbsp;own.&lt;/li&gt;
 &lt;li&gt;The number next to an active status effect shows how many rounds it&amp;#8217;s been active&amp;nbsp;for.&lt;/li&gt;
 &lt;li&gt;Click on active status effects to edit or remove&amp;nbsp;them.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;&lt;a id="Discard"&gt;&lt;/a&gt;Discard encounter&lt;/h3&gt;
+&lt;h3&gt;&lt;a id="Discard"&gt;&lt;/a&gt;Discard&amp;nbsp;encounter&lt;/h3&gt;
 &lt;p&gt;The &amp;#8220;Discard encounter&amp;#8221; (cross) button at the top right of the screen replaces the current encounter with a fresh one. It&amp;#8217;s like tearing the page out of your&amp;nbsp;notebook.&lt;/p&gt;
-&lt;h3&gt;&lt;a id="New"&gt;&lt;/a&gt;New encounter&lt;/h3&gt;
+&lt;h3&gt;&lt;a id="New"&gt;&lt;/a&gt;New&amp;nbsp;encounter&lt;/h3&gt;
 &lt;p&gt;The &amp;#8220;New encounter&amp;#8221; (plus) button at the top of the screen creates a fresh, empty encounter, saving the current one in the background. This is like turning to the next page of your notebook. You can return to your previous encounter using the &amp;#8220;Encounters&amp;#8221; (three horizontal lines)&amp;nbsp;menu.&lt;/p&gt;
-&lt;h3&gt;&lt;a id="Reset"&gt;&lt;/a&gt;Reset encounter&lt;/h3&gt;
-&lt;p&gt;The &amp;#8220;Reset&amp;#8221; button resets the round counter, removes all status effects, and sets all custom fields to their maximum&amp;nbsp;values.&lt;/p&gt;</content><category term="D&amp;D"></category><category term="tabletop"></category></entry><entry><title>Factorio tube map</title><link href="https://nobodyisthere.github.io/blog/factorio-tube-map.html" rel="alternate"></link><published>2021-09-10T00:00:00+01:00</published><updated>2021-09-10T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-09-10:/blog/factorio-tube-map.html</id><summary type="html">&lt;figure&gt;
+&lt;h3&gt;&lt;a id="Reset"&gt;&lt;/a&gt;Reset&amp;nbsp;encounter&lt;/h3&gt;
+&lt;p&gt;The &amp;#8220;Reset&amp;#8221; button resets the round counter, removes all status effects, and sets all custom fields to their maximum&amp;nbsp;values.&lt;/p&gt;</content><category term="Games"></category><category term="D&amp;D"></category><category term="tabletop"></category></entry><entry><title>Factorio tube map</title><link href="https://nobodyisthere.github.io/blog/factorio-tube-map.html" rel="alternate"></link><published>2021-09-10T00:00:00+01:00</published><updated>2021-09-10T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-09-10:/blog/factorio-tube-map.html</id><summary type="html">&lt;figure&gt;
     &lt;a href="https://nobodyisthere.github.io/blog/images/factorio_tube_map.png"&gt;&lt;img src="https://nobodyisthere.github.io/blog/images/factorio_tube_map.png" alt="A map of the train system in our Factorio game that looks like a map of the London Underground."/&gt;&lt;/a&gt;
     &lt;figcaption&gt;What did you expect?&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -216,7 +220,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;The second thing I realised was that making two or more lines bend together around 45-degree corners is an absolute nightmare. You basically need to switch to a 45-degree grid with spacing as wide as your lines, aligned with the position of the bend. I made a little tool for this in Inkscape, a widget that I could drag around and snap all my lines to, but even with this, editing the lines was a pain. It certainly wasn’t the simple “drag points around on a grid” that I had naïvely&amp;nbsp;imagined.&lt;/p&gt;
 &lt;p&gt;Finally, there are a lot of other little design choices that go into making a map like this. Under what circumstances should you use a 90-degree turn rather than a 45-degree one? At what point do you choose to bend a line? How much do you adjust the real-world distances between&amp;nbsp;stations?&lt;/p&gt;
 &lt;p&gt;I’ve always thought that the Tube map is lovely (I suspect people in Britain might be conditioned to think that), but I have even more respect for it after this silly little project. I mean, &lt;a href="https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif"&gt;just look at it&lt;/a&gt;. It’s&amp;nbsp;great.&lt;/p&gt;
-&lt;p&gt;Oh, and here’s a &lt;a href="https://www.youtube.com/watch?v=bTCYdh65YRU"&gt;link to the timelapse of our session&lt;/a&gt;, if you’re&amp;nbsp;interested.&lt;/p&gt;</content><category term="Factorio"></category></entry><entry><title>A DIY dance pad for PC</title><link href="https://nobodyisthere.github.io/blog/a-diy-dance-pad-for-pc.html" rel="alternate"></link><published>2021-08-27T00:00:00+01:00</published><updated>2021-08-27T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-08-27:/blog/a-diy-dance-pad-for-pc.html</id><summary type="html">&lt;figure&gt;
+&lt;p&gt;Oh, and here’s a &lt;a href="https://www.youtube.com/watch?v=bTCYdh65YRU"&gt;link to the timelapse of our session&lt;/a&gt;, if you’re&amp;nbsp;interested.&lt;/p&gt;</content><category term="Games"></category><category term="Factorio"></category></entry><entry><title>A DIY dance pad for PC</title><link href="https://nobodyisthere.github.io/blog/a-diy-dance-pad-for-pc.html" rel="alternate"></link><published>2021-08-27T00:00:00+01:00</published><updated>2021-08-27T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-08-27:/blog/a-diy-dance-pad-for-pc.html</id><summary type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/dancepad-finished.jpg" alt="Eight-button dance pad with a picture from Crypt of the NecroDancer."/&gt;
     &lt;figcaption&gt;Pad image: &lt;i&gt;Crypt of the NecroDancer&lt;/i&gt;.&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -231,7 +235,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;I’ve been using the pictured dance pad since February, and it’s working really well! Here’s how to make one&amp;nbsp;yourself.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;I based the pad on &lt;a href="https://ventspace.wordpress.com/2019/02/19/danceforce-v4-diy-ddr-pad-build-thread/"&gt;Promit Roy’s four-button Velostat design&lt;/a&gt;, but mine is made with cheaper materials since I didn’t want to spend too much. Inside, it’s mostly card and sticky tape. If you want to customise this design, I recommend checking out his blog, as he goes into some detail about the impact that different materials can&amp;nbsp;have.&lt;/p&gt;
-&lt;h2&gt;Shopping list&lt;/h2&gt;
+&lt;h2&gt;Shopping&amp;nbsp;list&lt;/h2&gt;
 &lt;p&gt;Units are&amp;nbsp;millimetres.&lt;/p&gt;
 &lt;h3&gt;Materials&lt;/h3&gt;
 &lt;ul&gt;
@@ -301,7 +305,6 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
     &lt;img src="https://nobodyisthere.github.io/blog/images/dancepad-wiring.jpg" alt="Pad with wires extending from each step."/&gt;
     &lt;figcaption&gt;Connect the wires to the contacts you made for each step. If you have the money and/or the wire lying around already, you could use a different colour for each step to make debugging easier.&lt;/figcaption&gt;
 &lt;/figure&gt;
-
 &lt;p&gt;Nearly there! Stick everything down with tape. No need to tape every edge of every sensor, but you can if you&amp;nbsp;want.&lt;/p&gt;
 &lt;p&gt;You should probably test your pad now. Using the multimeter, test each step in turn by measuring the resistance between the common contact and each step contact (or each step’s corresponding wire). When you put your foot on the card, you should see a big drop in resistance (you should see units of Ohms with your foot on the card, and tens or hundreds or more&amp;nbsp;without).&lt;/p&gt;
 &lt;p&gt;Clamp the polycarbonate sheet onto the pad. Don’t remove the protective film yet. Make sure everything is aligned properly, then drill 5mm holes through the&amp;nbsp;corners.&lt;/p&gt;
@@ -321,7 +324,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/dancepad-finished.jpg" alt="Completed dance pad."/&gt;
     &lt;figcaption&gt;Pad image: &lt;i&gt;Crypt of the NecroDancer&lt;/i&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><category term="Crypt of the NecroDancer"></category><category term="DIY"></category></entry><entry><title>Epistolary</title><link href="https://nobodyisthere.github.io/blog/epistolary.html" rel="alternate"></link><published>2021-04-22T00:00:00+01:00</published><updated>2021-04-22T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-04-22:/blog/epistolary.html</id><summary type="html">&lt;figure&gt;
+&lt;/figure&gt;</content><category term="Games"></category><category term="Crypt of the NecroDancer"></category><category term="DIY"></category></entry><entry><title>Epistolary</title><link href="https://nobodyisthere.github.io/blog/epistolary.html" rel="alternate"></link><published>2021-04-22T00:00:00+01:00</published><updated>2021-04-22T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-04-22:/blog/epistolary.html</id><summary type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/epistolary.jpg" alt="Epistolary"/&gt;
     &lt;figcaption&gt;Illustration by Kira Smith.&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -350,14 +353,12 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;p&gt;Kira’s cover illustration is genius, too. She had very little to go off; just some vague mumblings from me about 20th century letter-writing and impending doom, but she managed to capture exactly the feeling I was going for. It was wonderful working with such talented&amp;nbsp;people.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;em&gt;Epistolary&lt;/em&gt; is available on &lt;a href="https://nobodyisthere.itch.io/epistolary"&gt;itch.io&lt;/a&gt; and on &lt;a href="https://www.drivethrurpg.com/product/350281"&gt;DriveThruRPG&lt;/a&gt;.&lt;/p&gt;</content><category term="Epistolary"></category></entry><entry><title>Ashville High</title><link href="https://nobodyisthere.github.io/blog/ashville-high.html" rel="alternate"></link><published>2021-03-27T00:00:00+00:00</published><updated>2021-03-27T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-03-27:/blog/ashville-high.html</id><summary type="html">&lt;figure&gt;
+&lt;p&gt;&lt;em&gt;Epistolary&lt;/em&gt; is available on &lt;a href="https://nobodyisthere.itch.io/epistolary"&gt;itch.io&lt;/a&gt; and on &lt;a href="https://www.drivethrurpg.com/product/350281"&gt;DriveThruRPG&lt;/a&gt;.&lt;/p&gt;</content><category term="Games"></category><category term="Epistolary"></category></entry><entry><title>Ashville High</title><link href="https://nobodyisthere.github.io/blog/ashville-high.html" rel="alternate"></link><published>2021-03-27T00:00:00+00:00</published><updated>2021-03-27T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2021-03-27:/blog/ashville-high.html</id><summary type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ashville-high.jpg" alt="Ashville High"/&gt;
 &lt;/figure&gt;
-
 &lt;p&gt;Last year, I ran a &lt;em&gt;D&amp;amp;D&lt;/em&gt; campaign set in and around a modern-day &lt;span class="caps"&gt;US&lt;/span&gt; high school. This post is just a dump of all my thoughts and some of the resources I made for the campaign. It’s intended to be browsed casually, not read from beginning to&amp;nbsp;end …&lt;/p&gt;</summary><content type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ashville-high.jpg" alt="Ashville High"/&gt;
 &lt;/figure&gt;
-
 &lt;p&gt;Last year, I ran a &lt;em&gt;D&amp;amp;D&lt;/em&gt; campaign set in and around a modern-day &lt;span class="caps"&gt;US&lt;/span&gt; high school. This post is just a dump of all my thoughts and some of the resources I made for the campaign. It’s intended to be browsed casually, not read from beginning to&amp;nbsp;end.&lt;/p&gt;
 &lt;p&gt;Perhaps someone out there will find it interesting and/or useful. I hope&amp;nbsp;so!&lt;/p&gt;
 &lt;hr&gt;
@@ -436,7 +437,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;It’s interesting that these are the only notes I have on Marlowe. I spent the longest time out of everyone with Marlowe’s player, as he came in with only a vague idea of what he wanted to do. But I left with such a strong idea of Marlowe’s character that clearly I didn’t feel the need to write anything down. He was a theatre kid. Not a bard, but a warlock who had made a pact with The Bard. He was also a fairy, which is a custom race that’s almost identical to the&amp;nbsp;half-elf.&lt;/p&gt;
 &lt;p&gt;(His name was originally going to be Faust Marlowe, but his player swapped the names before the first&amp;nbsp;session.)&lt;/p&gt;
 &lt;div class="rpg"&gt;
-    &lt;h4&gt;Fairy Traits&lt;/h4&gt;
+    &lt;h4&gt;Fairy&amp;nbsp;Traits&lt;/h4&gt;
     &lt;p&gt;Your fairy character has the following&amp;nbsp;traits.&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Ability Score Increase.&lt;/span&gt; Your Charisma score increases by 2, and two other ability scores of your choice increase by&amp;nbsp;1.&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Size.&lt;/span&gt; Your size is&amp;nbsp;Medium.&lt;/p&gt;
@@ -462,7 +463,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;It was absolutely fine; really not a big deal at&amp;nbsp;all.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;28/3/2021&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Magic_items"&gt;&lt;/a&gt;Starting items&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Magic_items"&gt;&lt;/a&gt;Starting&amp;nbsp;items&lt;/h2&gt;
 &lt;p&gt;Each character started with at least one minor magic&amp;nbsp;item.&lt;/p&gt;
 &lt;h3&gt;Amber&lt;/h3&gt;
 &lt;figure class="right"&gt;
@@ -470,7 +471,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;/figure&gt;
 
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Baton of the Majorette&lt;/h5&gt;
+    &lt;h5&gt;Baton of the&amp;nbsp;Majorette&lt;/h5&gt;
     &lt;p class="rarity"&gt;Staff, uncommon (requires&amp;nbsp;attunement)&lt;/p&gt;
     &lt;p&gt;When you succeed on a save against an enchantment spell, you can use your reaction to turn the spell back on its caster as if you had cast the spell, using Charisma as your spellcasting ability. If the original spell targeted multiple creatures, the reversed spell only targets the caster. Other targeted creatures are still affected by the original spell. Once used, this property can&amp;#8217;t be used again until the next&amp;nbsp;dawn.&lt;/p&gt;
 &lt;/div&gt;
@@ -481,11 +482,11 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;/figure&gt;
 
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Hoodie of Hiding&lt;/h5&gt;
+    &lt;h5&gt;Hoodie of&amp;nbsp;Hiding&lt;/h5&gt;
     &lt;p class="rarity"&gt;Hoodie,&amp;nbsp;common&lt;/p&gt;
     &lt;p&gt;While wearing this hoodie, you appear in your Human Form to all creatures that do not know your true form. This does not affect creatures that don&amp;#8217;t rely on sight, as with blindsight, or can see through illusions, as with truesight. While wearing the hoodie, you can use your action to lower the hood, revealing your true form to anyone&amp;nbsp;watching.&lt;/p&gt;
     &lt;p&gt;The hoodie also confers a +1 bonus to Dexterity (Stealth) checks made in urban&amp;nbsp;environments.&lt;/p&gt;
-    &lt;h5&gt;Uncle Jimmy&amp;rsquo;s Nerf Rifle&lt;/h5&gt;
+    &lt;h5&gt;Uncle Jimmy&amp;rsquo;s Nerf&amp;nbsp;Rifle&lt;/h5&gt;
     &lt;p class="rarity"&gt;Weapon (Nerf rifle),&amp;nbsp;common&lt;/p&gt;
     &lt;p class="rarity"&gt;(range 150/600; 1d8 piercing damage; ammunition; heavy;&amp;nbsp;two-handed)&lt;/p&gt;
     &lt;p&gt;This modified Nerf gun has a switch on the side that can be used to enable or disable its magical&amp;nbsp;generator.&lt;/p&gt;
@@ -498,7 +499,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;/figure&gt;
 
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Wrestling Band-aids&lt;/h5&gt;
+    &lt;h5&gt;Wrestling&amp;nbsp;Band-aids&lt;/h5&gt;
     &lt;p class="rarity"&gt;Wondrous item, very&amp;nbsp;rare&lt;/p&gt;
     &lt;p&gt;A very rare, limited edition set of novelty band-aids depicting famous wrestlers. You can use your action to apply one to a creature within 5 feet of you, immediately activating its effect. There are six&amp;nbsp;left:&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Meg Maniac.&lt;/span&gt; The target gains resistance to bludgeoning, piercing and slashing damage for one&amp;nbsp;minute.&lt;/p&gt;
@@ -513,7 +514,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;/figure&gt;
 
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;St Christopher&amp;rsquo;s medal&lt;/h5&gt;
+    &lt;h5&gt;St Christopher&amp;rsquo;s&amp;nbsp;medal&lt;/h5&gt;
     &lt;p class="rarity"&gt;Wondrous item, uncommon (requires&amp;nbsp;attunement)&lt;/p&gt;
     &lt;p&gt;While wearing this medallion, you appear in your Human Form as if under the effect of an &lt;em&gt;alter self&lt;/em&gt;&amp;nbsp;spell.&lt;/p&gt;
     &lt;p&gt;This item also has the following feature if attuned to by Hope&amp;nbsp;Danvers:&lt;/p&gt;
@@ -533,7 +534,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;/figure&gt;
 
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Sophie&amp;rsquo;s Druidic Focus&lt;/h5&gt;
+    &lt;h5&gt;Sophie&amp;rsquo;s Druidic&amp;nbsp;Focus&lt;/h5&gt;
     &lt;p&gt;A locket containing some of Poppy&amp;rsquo;s hair, and a&amp;nbsp;poppy.&lt;/p&gt;
     &lt;p&gt;Once per day, you can use this item to cast the &lt;em&gt;druidcraft&lt;/em&gt;&amp;nbsp;cantrip.&lt;/p&gt;
     &lt;p&gt;This item also has the following feature if attuned to by Sophie&amp;nbsp;Shadwell:&lt;/p&gt;
@@ -543,39 +544,39 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;h2&gt;Buttons&lt;/h2&gt;
 &lt;p&gt;At one point, Sophie made buttons for all her friends. These had various effects that enhanced or augmented each character’s abilities. Most of them were existing traits from the 5th edition source books. Here are the&amp;nbsp;details:&lt;/p&gt;
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Amber&amp;rsquo;s button&lt;/h5&gt;
+    &lt;h5&gt;Amber&amp;rsquo;s&amp;nbsp;button&lt;/h5&gt;
     &lt;p&gt;Sophie Shadwell made this for you as a token of your friendship. While wearing it, you have the following&amp;nbsp;ability:&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Pack Tactics.&lt;/span&gt; You have advantage on an attack roll against a creature if at least one of your friends is within 5 feet of the creature and the friend isn&amp;#8217;t&amp;nbsp;incapacitated.&lt;/p&gt;
-    &lt;h5&gt;Bueller&amp;rsquo;s button&lt;/h5&gt;
+    &lt;h5&gt;Bueller&amp;rsquo;s&amp;nbsp;button&lt;/h5&gt;
     &lt;p&gt;Sophie Shadwell made this for you as a token of your friendship. While wearing it, you have the following&amp;nbsp;ability:&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Improved Primeval Awareness.&lt;/span&gt; When you use your Primeval Awareness ability to detect your favoured enemies, you can also sense whether any of your party are present within 5 miles of you. You learn the general direction and distance (in miles) to those party members, as well as the identity of each party&amp;nbsp;member.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Bueller never actually received his button. Instead, he got the following ability when his friend Will&amp;nbsp;died:&lt;/p&gt;
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Angry Bird&lt;/h5&gt;
+    &lt;h5&gt;Angry&amp;nbsp;Bird&lt;/h5&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Avenging Strike.&lt;/span&gt; When you hit a creature that has reduced one of your friends to zero hit points, you can choose to deal maximum damage for the attack. The damage becomes magical, and ignores any resistances. Once you use this ability, you can&amp;#8217;t use it again until you finish a long&amp;nbsp;rest.&lt;/p&gt;
-    &lt;h5&gt;Ferris&amp;rsquo; button&lt;/h5&gt;
+    &lt;h5&gt;Ferris&amp;rsquo;&amp;nbsp;button&lt;/h5&gt;
     &lt;p&gt;Sophie Shadwell made this for you as a token of your friendship. While wearing it, you have the following&amp;nbsp;ability:&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Fighting Style: Protection.&lt;/span&gt; When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack&amp;nbsp;roll.&lt;/p&gt;
-    &lt;h5&gt;Hope&amp;rsquo;s button&lt;/h5&gt;
+    &lt;h5&gt;Hope&amp;rsquo;s&amp;nbsp;button&lt;/h5&gt;
     &lt;p&gt;Sophie Shadwell made this for you as a token of your friendship. While wearing it, if you have revealed to the party that you are a tiefling, and Sophie has revealed to you that she is a half-elf, you have the following&amp;nbsp;ability:&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Bond of Friendship.&lt;/span&gt; When a creature you can see hits a friend who is within 5 feet of you, you can use your reaction to halve the amount of damage they take. You take the remainder of the damage&amp;nbsp;instead.&lt;/p&gt;
-    &lt;h5&gt;Marlowe&amp;rsquo;s button&lt;/h5&gt;
+    &lt;h5&gt;Marlowe&amp;rsquo;s&amp;nbsp;button&lt;/h5&gt;
     &lt;p&gt;Sophie Shadwell made this for you as a token of your friendship. While wearing it, you have the following&amp;nbsp;ability:&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Bardic Inspiration.&lt;/span&gt; You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a&amp;nbsp;d6.&lt;/p&gt;
     &lt;p&gt;Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the &lt;span class="caps"&gt;DM&lt;/span&gt; says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a&amp;nbsp;time.&lt;/p&gt;
     &lt;p&gt;You can use this feature a number of times equal to half your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long&amp;nbsp;rest.&lt;/p&gt;
-    &lt;h5&gt;Sophie&amp;rsquo;s button&lt;/h5&gt;
+    &lt;h5&gt;Sophie&amp;rsquo;s&amp;nbsp;button&lt;/h5&gt;
     &lt;p&gt;You made this for Bueller as a token of your friendship. He gave it back to you with a drawing of you on the&amp;nbsp;back.&lt;/p&gt;
     &lt;p&gt;While wearing this button, the number of times you can use your Wild Shape ability without taking a long rest is increased by&amp;nbsp;one.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;I let the players decide whether or not they would read out the details of their buttons, and they decided not to. I think this was a mistake, in hindsight. It’s fun for players to enjoy sharing the details of their loot, and it helps in combat if everyone has an idea about what everyone else can&amp;nbsp;do.&lt;/p&gt;
-&lt;h2&gt;Other magic items&lt;/h2&gt;
+&lt;h2&gt;Other magic&amp;nbsp;items&lt;/h2&gt;
 &lt;p&gt;And here are some other magic items I made for the&amp;nbsp;campaign.&lt;/p&gt;
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Buff Gun&lt;/h5&gt;
+    &lt;h5&gt;Buff&amp;nbsp;Gun&lt;/h5&gt;
     &lt;p class="rarity"&gt;Weapon (Nerf rifle),&amp;nbsp;legendary&lt;/p&gt;
     &lt;p class="rarity"&gt;(range 150/600; 1d8 magical piercing damage; heavy;&amp;nbsp;two-handed)&lt;/p&gt;
     &lt;p&gt;A Nerf rifle styled to look like Ana&amp;rsquo;s biotic rifle from &lt;em&gt;Overwatch&lt;/em&gt;.&lt;/p&gt;
@@ -590,7 +591,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
     &lt;p class="rarity"&gt;(melee; thrown 30/60; 1d4 bludgeoning&amp;nbsp;damage)&lt;/p&gt;
     &lt;p&gt;This regulation size and weight football glows blue when orcs are near. So all the time,&amp;nbsp;basically.&lt;/p&gt;
     &lt;p&gt;You gain a +1 bonus to attack and damage rolls made with this magic&amp;nbsp;weapon.&lt;/p&gt;
-    &lt;h5&gt;Hamwise the Brave&lt;/h5&gt;
+    &lt;h5&gt;Hamwise the&amp;nbsp;Brave&lt;/h5&gt;
     &lt;p class="rarity"&gt;Weapon (hammer),&amp;nbsp;rare&lt;/p&gt;
     &lt;p class="rarity"&gt;(melee; 2d6 bludgeoning or piercing damage; martial; finesse;&amp;nbsp;two-handed)&lt;/p&gt;
     &lt;p&gt;This magic 6-foot hammer weighs only 4 lb, and has a telescopic handle that allows it to fold up to the size of a regular&amp;nbsp;hammer.&lt;/p&gt;
@@ -598,11 +599,11 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
     &lt;p class="rarity"&gt;Wondrous item,&amp;nbsp;rare&lt;/p&gt;
     &lt;p&gt;A cute keychain with a popular character on&amp;nbsp;it.&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Digivolve.&lt;/span&gt; You can use your action while holding this item to centre yourself. You regain one ki point and 1d8 temporary hit points. Once used, this property can&amp;#8217;t be used again until the next&amp;nbsp;dawn.&lt;/p&gt;
-    &lt;h5&gt;Lucky coin&lt;/h5&gt;
+    &lt;h5&gt;Lucky&amp;nbsp;coin&lt;/h5&gt;
     &lt;p class="rarity"&gt;Wondrous item, very&amp;nbsp;rare&lt;/p&gt;
     &lt;p&gt;An old coin Sophie found her pocket after visiting the&amp;nbsp;arcade.&lt;/p&gt;
     &lt;p&gt;&lt;span class="trait"&gt;Lucky.&lt;/span&gt; After rolling any die, but before the outcome is determined, you can use your reaction to reroll it. You choose which of the two rolls you use. Once used, this property can&amp;#8217;t be used again until the next&amp;nbsp;dawn.&lt;/p&gt;
-    &lt;h5&gt;Revolver of Truth&lt;/h5&gt;
+    &lt;h5&gt;Revolver of&amp;nbsp;Truth&lt;/h5&gt;
     &lt;p class="rarity"&gt;Weapon (revolver), legendary (requires&amp;nbsp;attunement)&lt;/p&gt;
     &lt;p class="rarity"&gt;(range 30/120; 1d8 force&amp;nbsp;damage)&lt;/p&gt;
     &lt;p&gt;This magic weapon contains six bullets of light called &amp;#8220;truth bullets&amp;#8221;. You can use an action on your turn to reload&amp;nbsp;it.&lt;/p&gt;
@@ -619,7 +620,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;What I should have done is what I did with the villain: wait until the story starts, then decide on the key plot points once you know what the players are interested in and what they want to engage with. I knew that I wanted the villain to be someone the players met in the first session, but I didn’t trust myself to set it up without giving it away, so I just played all the characters as best I could, then decided who it was after the fact, based on who the players decided to interact&amp;nbsp;with.&lt;/p&gt;
 &lt;p&gt;So it wasn’t until the end of the first session that I knew who my villain was. Once that was in place, I could flesh out the rest of the villain’s scheme based on her actions in the first session and the kind of conclusion I had in&amp;nbsp;mind.&lt;/p&gt;
 &lt;div class="book"&gt;
-    &lt;h2&gt;Marlowe&amp;rsquo;s Vision&lt;/h2&gt;
+    &lt;h2&gt;Marlowe&amp;rsquo;s&amp;nbsp;Vision&lt;/h2&gt;
     &lt;p&gt;&lt;em&gt;The curtain rises on a figure in&amp;nbsp;motley.&lt;/em&gt;&lt;/p&gt;
     &lt;p&gt;Consider, ye who weep yet do not act,&lt;br/&gt;
         who act in life for love and on your stage&lt;br/&gt;
@@ -649,9 +650,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
         a devil walks the path of&amp;nbsp;grace.&lt;/p&gt;
     &lt;p&gt;&lt;em&gt;The curtain falls as iron bars, trapping you inside, looking out at the figures and the&amp;nbsp;school.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;p&gt;I really wanted to use that trope where the lessons we see the characters having at school are relevant to the combat encounter or puzzle they’re going to come up against. This kind of fell by the wayside after the first encounter,&amp;nbsp;though.&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Encounter1"&gt;&lt;/a&gt;The &lt;span class="caps"&gt;IT&lt;/span&gt; Classroom&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Encounter1"&gt;&lt;/a&gt;The &lt;span class="caps"&gt;IT&lt;/span&gt;&amp;nbsp;Classroom&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-01.jpg" alt="The IT classroom. The party fights animated computers."/&gt;
     &lt;figcaption&gt;The first encounter of the campaign: the &lt;span class="caps"&gt;IT&lt;/span&gt; classroom.&lt;/figcaption&gt;
@@ -661,7 +661,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;I modified the modrons slightly so that two modrons could merge with each other to form a modron of the next level up. Every turn, the virus would spread from every infected computer or modron to all adjacent computers. The screen of an affected computer would glow green for one turn, after which it would transform into a&amp;nbsp;modron.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;3/4/2021&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Gizmo"&gt;&lt;/a&gt;The Gizmo&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Gizmo"&gt;&lt;/a&gt;The&amp;nbsp;Gizmo&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;If you play &lt;em&gt;D&amp;amp;D&lt;/em&gt; with me, please don’t read this&amp;nbsp;section!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The gizmo is a magic item that I gave one of the players in the third session. They had no idea what it did, so they never used&amp;nbsp;it.&lt;/p&gt;
 &lt;p&gt;Many of the effects are genre-specific, but most of them could be fun in any&amp;nbsp;setting.&lt;/p&gt;
@@ -676,7 +676,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
     &lt;p&gt;Some facets produce effects that require creatures to make saving throws. The &lt;span class="caps"&gt;DC&lt;/span&gt; for these saving throws is&amp;nbsp;10.&lt;/p&gt;
     &lt;p&gt;Some facets produce treats. Eating more than one of any type of treat, or eating more than three in one day may have a negative effect (e.g. the poisoned condition) at the &lt;span class="caps"&gt;DM&lt;/span&gt;&amp;#8217;s discretion if a Constitution check is&amp;nbsp;failed.&lt;/p&gt;
     &lt;p&gt;Unless otherwise stated, the gizmo&amp;#8217;s effects have a range of 30 feet and last for one minute. Unless otherwise stated, effects that transform the gizmo revert when the transformed gizmo drops to 0 hit points. Dropping to 0 hit points while transformed does not destroy the&amp;nbsp;gizmo.&lt;/p&gt;
-    &lt;h6&gt;Gizmo Effects&lt;/h6&gt;
+    &lt;h6&gt;Gizmo&amp;nbsp;Effects&lt;/h6&gt;
     &lt;table&gt;
         &lt;thead&gt;&lt;tr&gt;&lt;th class="c"&gt;d6&lt;/th&gt;&lt;th class="c"&gt;d10&lt;/th&gt;&lt;th&gt;Effect&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
         &lt;tbody&gt;
@@ -753,7 +753,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;/div&gt;
 
 &lt;div class="rpg"&gt;
-    &lt;h5&gt;Cane of Candy&lt;/h5&gt;
+    &lt;h5&gt;Cane of&amp;nbsp;Candy&lt;/h5&gt;
     &lt;p class="rarity"&gt;Weapon (rapier),&amp;nbsp;rare&lt;/p&gt;
     &lt;p&gt;You gain a +1 bonus to attack rolls made with this magic weapon, which deals acid damage instead of piercing damage. The cane has 10 hit points, resistance to all damage, and is&amp;nbsp;edible.&lt;/p&gt;
     &lt;p&gt;Whenever you would take damage, the cane takes half of that damage instead of&amp;nbsp;you.&lt;/p&gt;
@@ -763,7 +763,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;It was a lot of effort for an item that was never used, but I’m sure I can find an opportunity to use it&amp;nbsp;again.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;6/4/2021&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Encounter2"&gt;&lt;/a&gt;The Basketball Game&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Encounter2"&gt;&lt;/a&gt;The Basketball&amp;nbsp;Game&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-02.jpg" alt="The basketball game: the party plays basketball for the fate of the school."/&gt;
     &lt;figcaption&gt;The second encounter of the campaign: Darren Blade must not be allowed to win the basketball game.&lt;/figcaption&gt;
@@ -771,7 +771,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;p&gt;This was a fun encounter. They were against the clock here, with ten rounds to win the basketball game. They managed to pull into the lead on the final turn of the final&amp;nbsp;round.&lt;/p&gt;
 &lt;p&gt;We used the &lt;a href="basketball.html"&gt;rules for basketball&lt;/a&gt; I posted&amp;nbsp;before.&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Friendly_NPCs"&gt;&lt;/a&gt;Friendly NPCs&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Friendly_NPCs"&gt;&lt;/a&gt;Friendly&amp;nbsp;NPCs&lt;/h2&gt;
 &lt;p&gt;This seems like as good a time as any to show you the stat blocks for the friendly NPCs in the&amp;nbsp;campaign.&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-friendly-npcs.jpg" alt="Sprites for the friendly NPCs. Aeron is a wood elf dressed like Phoenix Wright. Aisha is smoking a cigarette. Catherine is a half-orc in a green sweater. Gordon is a dragonborn firefighter."/&gt;
@@ -781,7 +781,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
         &lt;h1&gt;Aeron&lt;/h1&gt;
-        &lt;h2&gt;Medium humanoid (wood elf), lawful good&lt;/h2&gt;
+        &lt;h2&gt;Medium humanoid (wood elf), lawful&amp;nbsp;good&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 14&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 29&lt;br/&gt;
@@ -835,8 +835,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Aisha Shakoor&lt;/h1&gt;
-        &lt;h2&gt;Medium humanoid (human), chaotic good&lt;/h2&gt;
+        &lt;h1&gt;Aisha&amp;nbsp;Shakoor&lt;/h1&gt;
+        &lt;h2&gt;Medium humanoid (human), chaotic&amp;nbsp;good&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 15&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 27&lt;br/&gt;
@@ -880,8 +880,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Catherine Wheeler&lt;/h1&gt;
-        &lt;h2&gt;Medium humanoid (half-orc), chaotic good&lt;/h2&gt;
+        &lt;h1&gt;Catherine&amp;nbsp;Wheeler&lt;/h1&gt;
+        &lt;h2&gt;Medium humanoid (half-orc), chaotic&amp;nbsp;good&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 17&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 44&lt;br/&gt;
@@ -930,8 +930,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;Gordon was one of Hope’s dads. He was a Circle of the Land druid, but his domain was the city. I only worked out the domain’s spells up to 5th&amp;nbsp;level.&lt;/p&gt;
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Gordon Weissman&lt;/h1&gt;
-        &lt;h2&gt;Medium humanoid (gold dragonborn), neutral good&lt;/h2&gt;
+        &lt;h1&gt;Gordon&amp;nbsp;Weissman&lt;/h1&gt;
+        &lt;h2&gt;Medium humanoid (gold dragonborn), neutral&amp;nbsp;good&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 12&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 35&lt;br/&gt;
@@ -981,7 +981,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;10/4/2021&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Encounter3"&gt;&lt;/a&gt;Encounter 3: The House Party&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Encounter3"&gt;&lt;/a&gt;Encounter 3: The House&amp;nbsp;Party&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-03.jpg" alt="At Cordelia's Hallowe'en party, a fight breaks out between werewolves and vampires."/&gt;
     &lt;figcaption&gt;The third encounter: the party gets caught up in a fight between werewolves and vampires.&lt;/figcaption&gt;
@@ -994,7 +994,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;h2&gt;&lt;a id="Songs"&gt;&lt;/a&gt;Songs&lt;/h2&gt;
 &lt;p&gt;This isn’t something I prepared for the campaign, but Marlowe’s player said that what he was doing at the party was playing the guitar, trying to explain &lt;em&gt;Verfremdungseffekt&lt;/em&gt; to the tune of “Wonderwall”. I improvised the second line during the session and wrote the rest&amp;nbsp;afterwards.&lt;/p&gt;
 &lt;div class="book"&gt;
-    &lt;h2&gt;No Fourth Wall&lt;/h2&gt;
+    &lt;h2&gt;No Fourth&amp;nbsp;Wall&lt;/h2&gt;
     &lt;p&gt;
         &lt;em&gt;Today is gonna be the day that I&amp;#8217;m gonna spell it out and say&lt;/em&gt;&lt;br/&gt;
         &lt;em&gt;that by now, you should have somehow realised that it&amp;#8217;s just a play.&lt;/em&gt;&lt;br/&gt;
@@ -1026,7 +1026,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;p&gt;The next one &lt;em&gt;is&lt;/em&gt; one I had anticipated singing in the campaign, but when it came down to it, I didn’t have the confidence to sing more than a couple of lines. It’s the villain Titania’s song from before the final confrontation. The details were to be improvised based on the situation, but this was the general&amp;nbsp;gist.&lt;/p&gt;
 &lt;div class="book"&gt;
-    &lt;h2&gt;Queen of Your World&lt;/h2&gt;
+    &lt;h2&gt;Queen of Your&amp;nbsp;World&lt;/h2&gt;
     &lt;p&gt;
         &lt;em&gt;I&amp;#8217;ve got medals and prizes aplenty,&lt;/em&gt;&lt;br/&gt;
         &lt;em&gt;I&amp;#8217;ve got trinkets and trophies galore.&lt;/em&gt;&lt;br/&gt;
@@ -1050,10 +1050,9 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
         &lt;em&gt;Queen of that&amp;nbsp;world.&lt;/em&gt;
     &lt;/p&gt;
 &lt;/div&gt;
-
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;17/4/2021&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Encounter4"&gt;&lt;/a&gt;Encounter 4: The Arcade&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Encounter4"&gt;&lt;/a&gt;Encounter 4: The&amp;nbsp;Arcade&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-04.jpg" alt="The party fights a vampire, a magician, and an animated strongman in an abandoned fairground arcade."/&gt;
     &lt;figcaption&gt;The fourth encounter: the abandoned fairground arcade.&lt;/figcaption&gt;
@@ -1064,7 +1063,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;The main gimmick of the fight worked well, though. In the centre was a “test your strength” attraction, with an image of a strongman behind it. At the start of the fight, thanks to the magician’s magic, the various attractions lit up and were rendered in colour, and the strongman came to life to fight the&amp;nbsp;party.&lt;/p&gt;
 &lt;p&gt;The party could disable the strongman by “beating” the six attractions: the hook-a-duck, the hall of mirrors, the shooting gallery, the fortune teller, the coin pusher and the “test your strength” attraction. Each one contained a reward (one of the &lt;a href="#Magic_items"&gt;magic items&lt;/a&gt; listed above) and weakened the&amp;nbsp;strongman.&lt;/p&gt;
 &lt;p&gt;It worked well overall. The minigames were simple and were resolved in one or two skill checks, but this was intentional, as I didn’t want the fight to drag on for too long (the previous two encounters had taken far longer than I had&amp;nbsp;hoped).&lt;/p&gt;
-&lt;h2&gt;&lt;a id="Hostile_NPCs"&gt;&lt;/a&gt;Enemy stat blocks&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Hostile_NPCs"&gt;&lt;/a&gt;Enemy stat&amp;nbsp;blocks&lt;/h2&gt;
 &lt;p&gt;Alright, here they&amp;nbsp;are.&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-enemies.jpg" alt="Hostile NPC sprites. Anya is a human with a pistol, Mungo is a halfling with an oversized hammer, Hercules is a huge muscular man with a moustache, Mukta is a magician with a top hat and a magic wand, Audrey II is a carnivorous plant, and Titania is a fairy with a crown and large, translucent wings."/&gt;
@@ -1073,8 +1072,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Anya Rider&lt;/h1&gt;
-        &lt;h2&gt;Medium humanoid (human, shapechanger), neutral evil&lt;/h2&gt;
+        &lt;h1&gt;Anya&amp;nbsp;Rider&lt;/h1&gt;
+        &lt;h2&gt;Medium humanoid (human, shapechanger), neutral&amp;nbsp;evil&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 14&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 120&lt;br/&gt;
@@ -1124,7 +1123,7 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
         &lt;h1&gt;Audrey &lt;span class="caps"&gt;II&lt;/span&gt;&lt;/h1&gt;
-        &lt;h2&gt;Large plant/construct, chaotic evil&lt;/h2&gt;
+        &lt;h2&gt;Large plant/construct, chaotic&amp;nbsp;evil&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 15 (natural armour)&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 136&lt;br/&gt;
@@ -1170,8 +1169,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Hercules Strongman&lt;/h1&gt;
-        &lt;h2&gt;Large construct, neutral&lt;/h2&gt;
+        &lt;h1&gt;Hercules&amp;nbsp;Strongman&lt;/h1&gt;
+        &lt;h2&gt;Large construct,&amp;nbsp;neutral&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 13 (natural armour)&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 105&lt;br/&gt;
@@ -1215,8 +1214,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;Mukta was based on the Mage stat&amp;nbsp;block.&lt;/p&gt;
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Magical Mukta&lt;/h1&gt;
-        &lt;h2&gt;Medium humanoid (human), neutral evil&lt;/h2&gt;
+        &lt;h1&gt;Magical&amp;nbsp;Mukta&lt;/h1&gt;
+        &lt;h2&gt;Medium humanoid (human), neutral&amp;nbsp;evil&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 12 (15 with &lt;em&gt;mage armour&lt;/em&gt;)&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 40&lt;br/&gt;
@@ -1267,8 +1266,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Mungo &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Bungo Bobbins&lt;/h1&gt;
-        &lt;h2&gt;Small humanoid (halfling), chaotic neutral&lt;/h2&gt;
+        &lt;h1&gt;Mungo &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Bungo&amp;nbsp;Bobbins&lt;/h1&gt;
+        &lt;h2&gt;Small humanoid (halfling), chaotic&amp;nbsp;neutral&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 16 (studded leather)&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 59&lt;br/&gt;
@@ -1313,12 +1312,12 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
         &lt;p&gt;&lt;span class="trait"&gt;Multiattack (Bungo only).&lt;/span&gt; Bungo attacks twice: once with his fist and once with his&amp;nbsp;dagger.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Fist.&lt;/span&gt; &lt;em&gt;Melee Weapon Attack.&lt;/em&gt; +7 to hit, reach 5 ft., one target. &lt;em&gt;Hit:&lt;/em&gt; 4 (1d8) bludgeoning&amp;nbsp;damage.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Silvered dagger.&lt;/span&gt; &lt;em&gt;Melee Weapon Attack.&lt;/em&gt; +7 to hit, reach 5 ft., one target. &lt;em&gt;Hit:&lt;/em&gt; 8 (1d8 + 4) piercing&amp;nbsp;damage.&lt;/p&gt;
-        &lt;h3&gt;Bonus Actions&lt;/h3&gt;
+        &lt;h3&gt;Bonus&amp;nbsp;Actions&lt;/h3&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Cunning Action.&lt;/span&gt; Mungo and Bungo can take a bonus action on each of their turns in combat to make a Sleight of Hand check; disarm a trap or open a lock with thieves&amp;#8217; tools; or take the Dash, Disengage, Hide, or Use an Object&amp;nbsp;actions.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2&gt;&lt;a id="Encounter5"&gt;&lt;/a&gt;The final encounter: The Theatre&lt;/h2&gt;
+&lt;h2&gt;&lt;a id="Encounter5"&gt;&lt;/a&gt;The final encounter: The&amp;nbsp;Theatre&lt;/h2&gt;
 &lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ah-05.jpg" alt="The final encounter. The party fights Audrey II and Titania in the school theatre."/&gt;
     &lt;figcaption&gt;The final encounter.&lt;/figcaption&gt;
@@ -1330,8 +1329,8 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
 &lt;p&gt;Even with my on-the-fly adjustments (making Audrey &lt;span class="caps"&gt;II&lt;/span&gt; and Titania act a little less optimally), the fight was very close, with Marlowe and Will both dying, and nearly everyone dropping to zero hit points at one point or&amp;nbsp;another.&lt;/p&gt;
 &lt;div class="rpg"&gt;
     &lt;div class="stat-block-dnd"&gt;
-        &lt;h1&gt;Queen Titania&lt;/h1&gt;
-        &lt;h2&gt;Medium fey, lawful neutral&lt;/h2&gt;
+        &lt;h1&gt;Queen&amp;nbsp;Titania&lt;/h1&gt;
+        &lt;h2&gt;Medium fey, lawful&amp;nbsp;neutral&lt;/h2&gt;
         &lt;hr/&gt;
         &lt;span class="stat"&gt;Armour Class&lt;/span&gt; 17 (natural armour)&lt;br/&gt;
         &lt;span class="stat"&gt;Hit Points&lt;/span&gt; 144&lt;br/&gt;
@@ -1384,11 +1383,11 @@ You can also just type &amp;#8220;d&amp;#8221; to roll your favourite&amp;nbsp;d
         &lt;p&gt;&lt;span class="trait"&gt;Multiattack.&lt;/span&gt; Titania makes two claw&amp;nbsp;attacks.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Claw.&lt;/span&gt; &lt;em&gt;Melee Weapon Attack.&lt;/em&gt; +9 to hit, reach 5 ft., one target. &lt;em&gt;Hit:&lt;/em&gt; 8 (1d8 + 4) slashing&amp;nbsp;damage.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Source of All Magic (recharge 5&amp;ndash;6).&lt;/span&gt; While Amber remains trapped in the crystal, Titania can use her action to regain two spell slots of any&amp;nbsp;level.&lt;/p&gt;
-        &lt;h3&gt;Legendary Actions&lt;/h3&gt;
+        &lt;h3&gt;Legendary&amp;nbsp;Actions&lt;/h3&gt;
         &lt;p&gt;Titania can take 3 legendary actions, choosing from the options below. Only one legendary option can be used at a time and only at the end of another creature&amp;#8217;s turn. Titania regains spent legendary actions at the start of her&amp;nbsp;turn.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Move.&lt;/span&gt; Titania moves up to her speed without provoking opportunity&amp;nbsp;attacks.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Claw.&lt;/span&gt; Titania makes one claw&amp;nbsp;attack.&lt;/p&gt;
-        &lt;h3&gt;Lair Actions&lt;/h3&gt;
+        &lt;h3&gt;Lair&amp;nbsp;Actions&lt;/h3&gt;
         &lt;p&gt;Titania can use one of the following actions on initiative count 20 (losing ties). She can&amp;#8217;t repeat an action until they have all been used, and she can&amp;#8217;t use the same action two rounds in a&amp;nbsp;row.&lt;/p&gt;
         &lt;p&gt;&lt;span class="trait"&gt;Willkommen.&lt;/span&gt; The auditorium becomes a cabaret until Titania loses concentration (as if concentrating on a spell).&lt;br/&gt;
 The cabaret is difficult terrain. When a creature enters the cabaret for the first time on a turn or starts its turn there, the creature must succeed on a &lt;span class="caps"&gt;DC&lt;/span&gt; 15 Dexterity saving throw or take 3d6 bludgeoning damage and be restrained by spectral patrons until the effect ends. A creature that starts its turn in the area and is already restrained by the patrons takes 3d6 bludgeoning damage.&lt;br/&gt;
@@ -1399,19 +1398,19 @@ A creature restrained by the patrons can use its action to make a &lt;span class
 &lt;/div&gt;
 
 &lt;hr&gt;
-&lt;p&gt;That’s all! Thanks for&amp;nbsp;reading!&lt;/p&gt;</content><category term="Ashville High"></category><category term="D&amp;D"></category></entry><entry><title>Basketball</title><link href="https://nobodyisthere.github.io/blog/basketball.html" rel="alternate"></link><published>2020-08-06T00:00:00+01:00</published><updated>2020-08-06T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2020-08-06:/blog/basketball.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;A note from the&amp;nbsp;future:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;That’s all! Thanks for&amp;nbsp;reading!&lt;/p&gt;</content><category term="Games"></category><category term="Ashville High"></category><category term="D&amp;D"></category></entry><entry><title>Basketball</title><link href="https://nobodyisthere.github.io/blog/basketball.html" rel="alternate"></link><published>2020-08-06T00:00:00+01:00</published><updated>2020-08-06T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2020-08-06:/blog/basketball.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;A note from the&amp;nbsp;future:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Last year, I ran a D&amp;amp;D campaign set in and around a modern-day &lt;span class="caps"&gt;US&lt;/span&gt; high school. I’m about to dump a load of assets and thoughts from that campaign onto this blog, but for now, enjoy these rules from the iconic fourth-session basketball …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;A note from the&amp;nbsp;future:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Last year, I ran a D&amp;amp;D campaign set in and around a modern-day &lt;span class="caps"&gt;US&lt;/span&gt; high school. I’m about to dump a load of assets and thoughts from that campaign onto this blog, but for now, enjoy these rules from the iconic fourth-session basketball&amp;nbsp;encounter.&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="rpg"&gt;
-    &lt;h2&gt;Rules for Basketball&lt;/h3&gt;
+    &lt;h2&gt;Rules for&amp;nbsp;Basketball&lt;/h3&gt;
     &lt;h3&gt;Possession&lt;/h3&gt;
     &lt;p&gt;A creature with two free hands can gain possession of the ball. When you gain possession, anyone on your team can use their reaction to gain an action and take part of their turn immediately. Alternatively, if you gained possession by using a reaction, you can gain an action as part of that same&amp;nbsp;reaction.&lt;/p&gt;
-    &lt;h3&gt;New Actions&lt;/h3&gt;
+    &lt;h3&gt;New&amp;nbsp;Actions&lt;/h3&gt;
     &lt;p&gt;The following new actions are available to basketball&amp;nbsp;players.&lt;/p&gt;
-    &lt;h4&gt;Follow (reaction)&lt;/h4&gt;
+    &lt;h4&gt;Follow&amp;nbsp;(reaction)&lt;/h4&gt;
     &lt;p&gt;When an opponent moves out of your reach, you can use your reaction to spend any remaining movement you have to follow them, instead of making an opportunity attack. This movement occurs after they have&amp;nbsp;moved.&lt;/p&gt;
-    &lt;h4&gt;Intercept (reaction)&lt;/h4&gt;
+    &lt;h4&gt;Intercept&amp;nbsp;(reaction)&lt;/h4&gt;
     &lt;p&gt;If the ball passes through your space, you can use your reaction to try and intercept it. Make a &lt;span class="caps"&gt;DC&lt;/span&gt; 15 Strength (Athletics) or Dexterity (Sleight of Hand) check. If you succeed, you gain&amp;nbsp;possession.&lt;/p&gt;
     &lt;h4&gt;Pass&lt;/h4&gt;
     &lt;p&gt;Pass the ball to another creature. If you are marked, make a Strength (Athletics) or Dexterity (Sleight of Hand) check contested by their Dexterity (Sleight of Hand), or foul. If you lose, they gain&amp;nbsp;possession.&lt;/p&gt;
@@ -1419,7 +1418,7 @@ A creature restrained by the patrons can use its action to make a &lt;span class
     &lt;p&gt;A creature is marked if they are within an opponent&amp;#8217;s reach and the ball must pass through that opponent&amp;#8217;s space or a space orthogonally adjacent to it to reach&amp;nbsp;them.&lt;/p&gt;
     &lt;h4&gt;Shoot&lt;/h4&gt;
     &lt;p&gt;Attempt to score by throwing the ball into the basket. Make a Strength (Athletics) check. The &lt;span class="caps"&gt;DC&lt;/span&gt; depends on where you are when you make the&amp;nbsp;shot.&lt;/p&gt;
-    &lt;h6&gt;Shooting DCs&lt;/h6&gt;
+    &lt;h6&gt;Shooting&amp;nbsp;DCs&lt;/h6&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
@@ -1448,13 +1447,13 @@ A creature restrained by the patrons can use its action to make a &lt;span class
     &lt;/table&gt;
     &lt;p&gt;For a shot from any other space, the &lt;span class="caps"&gt;DC&lt;/span&gt; is equal to the distance in feet to either of the spaces adjacent to the&amp;nbsp;basket.&lt;/p&gt;
     &lt;p&gt;A creature marking you can contest your check with their own Strength (Athletics) check, or foul. If they succeed, they gain&amp;nbsp;possession.&lt;/p&gt;
-    &lt;h4&gt;Steal (action or reaction)&lt;/h4&gt;
+    &lt;h4&gt;Steal (action or&amp;nbsp;reaction)&lt;/h4&gt;
     &lt;p&gt;Attempt to take possession of the ball from an opponent within 5 feet. Make a contested Dexterity (Sleight of Hand) check, or foul. If the opponent has used the Dodge action, you make your check with&amp;nbsp;disadvantage.&lt;/p&gt;
     &lt;p&gt;This can be used as a reaction instead of an opportunity&amp;nbsp;attack.&lt;/p&gt;
     &lt;h3&gt;Fouls&lt;/h3&gt;
     &lt;p&gt;Rather than making a contested check, you can instead foul, making a melee attack against your opponent. If you hit, you succeed on the check as well as dealing damage. Any other damage you deal during the game is also a&amp;nbsp;foul.&lt;/p&gt;
     &lt;p&gt;When you deal damage to an opponent, make a &lt;span class="caps"&gt;DC&lt;/span&gt; 10 Charisma (Persuasion) check. If you fail, the referee takes the side of your opponent and will punish your team with a turnover, or free throws for the fouled&amp;nbsp;player.&lt;/p&gt;
-&lt;/div&gt;</content><category term="Ashville High"></category><category term="D&amp;D"></category></entry><entry><title>Review: Untitled Goose Game</title><link href="https://nobodyisthere.github.io/blog/review-untitled-goose-game.html" rel="alternate"></link><published>2019-10-08T00:00:00+01:00</published><updated>2019-10-08T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-10-08:/blog/review-untitled-goose-game.html</id><summary type="html">&lt;figure&gt;
+&lt;/div&gt;</content><category term="Games"></category><category term="Ashville High"></category><category term="D&amp;D"></category></entry><entry><title>Review: Untitled Goose Game</title><link href="https://nobodyisthere.github.io/blog/review-untitled-goose-game.html" rel="alternate"></link><published>2019-10-08T00:00:00+01:00</published><updated>2019-10-08T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-10-08:/blog/review-untitled-goose-game.html</id><summary type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/goose_gate.jpg" alt="Entitled Goose waits patiently at the garden gate."/&gt;
     &lt;figcaption&gt;Image: &lt;em&gt;Untitled Goose Game&lt;/em&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1492,7 +1491,7 @@ A creature restrained by the patrons can use its action to make a &lt;span class
 &lt;p&gt;Overall, though, while &lt;em&gt;Untitled Goose Game&lt;/em&gt; provides an engaging and entertaining experience that is at least goose-approximate, it fails to deliver on several core aspects of goose realism, and we are therefore unable to award it any more than two geese out of a possible five&amp;nbsp;geese.&lt;/p&gt;
 &lt;div class="footnotes"&gt;
     This post was written for and first published in the October 2019 edition of &lt;a href="https://nouse.co.uk/2019/10/09/untitled-goose-game-is-it-goose-enough"&gt;&lt;em&gt;Nouse&lt;/em&gt;&lt;/a&gt;.
-&lt;/div&gt;</content><category term="Untitled Goose Game"></category></entry><entry><title>Photographs and reality</title><link href="https://nobodyisthere.github.io/blog/photographs-and-reality.html" rel="alternate"></link><published>2019-07-28T00:00:00+01:00</published><updated>2019-07-28T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-07-28:/blog/photographs-and-reality.html</id><summary type="html">&lt;figure&gt;
+&lt;/div&gt;</content><category term="Games"></category><category term="Untitled Goose Game"></category></entry><entry><title>Photographs and reality</title><link href="https://nobodyisthere.github.io/blog/photographs-and-reality.html" rel="alternate"></link><published>2019-07-28T00:00:00+01:00</published><updated>2019-07-28T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-07-28:/blog/photographs-and-reality.html</id><summary type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/photos_ffxv_noctis.jpg" alt="Noctis admires the view."/&gt;
     &lt;figcaption&gt;Image: &lt;em&gt;Final Fantasy &lt;span class="caps"&gt;XV&lt;/span&gt;&lt;/em&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1535,17 +1534,17 @@ A creature restrained by the patrons can use its action to make a &lt;span class
 &lt;p&gt;Or maybe it is. At the end of the day, you are the only person who can decide how much each memory is worth to you. Perhaps you do value out-of-game experiences that much more than in-game ones. But I bet I’m not the only one whose photo library is full of screenshots. And even if I am, I’ll be surprised if, in a couple of decades’ time, I’m still the strange&amp;nbsp;one.&lt;/p&gt;
 &lt;div class="footnotes"&gt;
     Photographs and screenshots by En Sattaur.
-&lt;/div&gt;</content><category term="Final Fantasy XV"></category><category term="Final Fantasy XIV"></category><category term="A Hat in Time"></category><category term="Dying Light"></category></entry><entry><title>The Truthseeker</title><link href="https://nobodyisthere.github.io/blog/the-truthseeker.html" rel="alternate"></link><published>2019-07-16T00:00:00+01:00</published><updated>2019-07-16T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-07-16:/blog/the-truthseeker.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;A note from the&amp;nbsp;future:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;</content><category term="Games"></category><category term="Final Fantasy XV"></category><category term="Final Fantasy XIV"></category><category term="A Hat in Time"></category><category term="Dying Light"></category></entry><entry><title>The Truthseeker</title><link href="https://nobodyisthere.github.io/blog/the-truthseeker.html" rel="alternate"></link><published>2019-07-16T00:00:00+01:00</published><updated>2019-07-16T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-07-16:/blog/the-truthseeker.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;A note from the&amp;nbsp;future:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This is a warlock subclass that I came up with for someone else’s &lt;em&gt;D&amp;amp;D&lt;/em&gt; 5e game. It should be taken as a rough draft, as it has seen next to no playtesting, and was created to work for just one character in one …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;A note from the&amp;nbsp;future:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This is a warlock subclass that I came up with for someone else’s &lt;em&gt;D&amp;amp;D&lt;/em&gt; 5e game. It should be taken as a rough draft, as it has seen next to no playtesting, and was created to work for just one character in one&amp;nbsp;campaign.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;I really like the idea of a subclass based around bartering with knowledge. I wanted to evoke that sense of risk that you see in tales of devil-summoning. You know, the whole “be careful what you say;” “don’t tell it your true name” sort of thing. Perhaps I’ll revisit this subclass if I ever play a warlock&amp;nbsp;again.&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="rpg"&gt;
-    &lt;h2&gt;The Truthseeker&lt;/h2&gt;
+    &lt;h2&gt;The&amp;nbsp;Truthseeker&lt;/h2&gt;
     &lt;p&gt;You have made a pact with a devil who thirsts for knowledge above all else. Although it is undoubtedly evil, it is not interested in destruction, for that would render its accumulated knowledge meaningless. Knowledge is power, and as the Truthseeker&amp;#8217;s knowledge grows, it plots and schemes in the dark, preparing for the day when all things will be under its&amp;nbsp;control.&lt;/p&gt;
-    &lt;h3&gt;Expanded Spell List&lt;/h3&gt;
+    &lt;h3&gt;Expanded Spell&amp;nbsp;List&lt;/h3&gt;
     &lt;p&gt;The Truthseeker lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for&amp;nbsp;you.&lt;/p&gt;
-    &lt;h6&gt;Truthseeker Expanded Spells&lt;/h6&gt;
+    &lt;h6&gt;Truthseeker Expanded&amp;nbsp;Spells&lt;/h6&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
@@ -1576,14 +1575,14 @@ A creature restrained by the patrons can use its action to make a &lt;span class
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
-    &lt;h3&gt;Truth for Truth&lt;/h3&gt;
+    &lt;h3&gt;Truth for&amp;nbsp;Truth&lt;/h3&gt;
     &lt;p&gt;Starting at 1st level, you are able to use your patron&amp;#8217;s infernal power to barter with knowledge. Activate this ability by touching a willing creature who has expressed its intention to tell the truth. While this ability is active, whenever you answer one of their questions truthfully, store one &amp;#8220;truth point&amp;#8221; against the creature. The effect ends if you tell a lie or if you end your turn in a position where neither of you are able to communicate with the other. Once you use this feature, you can&amp;#8217;t use it again until you finish a short or long&amp;nbsp;rest.&lt;/p&gt;
     &lt;p&gt;You can store a total number of truth points equal to your warlock level. If you have any truth points stored against a creature, you may use a bonus action on your turn to ask it a question in return. If it chooses to answer, you know whether or not it is telling the truth. If it does not answer, you have advantage on your next attack roll, ability check or saving throw against it, and it has disadvantage on its next attack roll, ability check or saving throw against&amp;nbsp;you.&lt;/p&gt;
     &lt;blockquote&gt;
-        &lt;h6&gt;Telling the Truth&lt;/h6&gt;
+        &lt;h6&gt;Telling the&amp;nbsp;Truth&lt;/h6&gt;
         &lt;p&gt;The Truth for Truth feature requires you to answer questions &amp;#8220;truthfully&amp;#8221; in order to gain truth points. Here, &amp;#8220;truthfully&amp;#8221; means fully and honestly. Evasive but technically truthful answers will not grant you truth points (though they won&amp;#8217;t end the effect,&amp;nbsp;either).&lt;/p&gt;
     &lt;/blockquote&gt;
-    &lt;h3&gt;Truthseeker&amp;#8217;s Knowledge&lt;/h3&gt;
+    &lt;h3&gt;Truthseeker&amp;#8217;s&amp;nbsp;Knowledge&lt;/h3&gt;
     &lt;p&gt;Starting at 6th level, you can use your stored questions to find out more about a creature. This takes the form of a ritual with a casting time of 1 minute, and requires divining components worth at least 25gp. For each question you have stored against a creature, you can ask one question about it, or about something that it knows. The &lt;span class="caps"&gt;DM&lt;/span&gt; chooses from the following possible&amp;nbsp;responses:&lt;/p&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;em&gt;Positive&lt;/em&gt;, if the answer to your question is &amp;#8216;yes&amp;#8217; or&amp;nbsp;similar&lt;/li&gt;
@@ -1593,11 +1592,11 @@ A creature restrained by the patrons can use its action to make a &lt;span class
     &lt;/ul&gt;
     &lt;p&gt;Instead of asking a question about a creature, you can instead use this feature and all stored truth points (if any) to cast the &lt;em&gt;augury&lt;/em&gt;&amp;nbsp;spell.&lt;/p&gt;
     &lt;p&gt;Once you use this feature, you can&amp;#8217;t use it again until you finish a long&amp;nbsp;rest.&lt;/p&gt;
-    &lt;h3&gt;Eyes of Truth&lt;/h3&gt;
+    &lt;h3&gt;Eyes of&amp;nbsp;Truth&lt;/h3&gt;
     &lt;p&gt;Starting at 10th level, you can use your Truthseeker&amp;#8217;s Knowledge feature and all stored truth points (if any) to cast the &lt;em&gt;divination&lt;/em&gt;&amp;nbsp;spell.&lt;/p&gt;
-    &lt;h3&gt;Blind Bargain&lt;/h3&gt;
+    &lt;h3&gt;Blind&amp;nbsp;Bargain&lt;/h3&gt;
     &lt;p&gt;Starting at 14th level, you can use your Truth for Truth feature on a creature you can see, without its knowledge or consent. This is similar to casting a spell with verbal and somatic components, and fails if you are unable to speak or move. A creature can notice your gestures or whispering with a successful Wisdom (Perception) check against your warlock spell save &lt;span class="caps"&gt;DC&lt;/span&gt;.&lt;/p&gt;
-&lt;/div&gt;</content><category term="D&amp;D"></category></entry><entry><title>On Dark Souls</title><link href="https://nobodyisthere.github.io/blog/on-dark-souls.html" rel="alternate"></link><published>2019-06-28T00:00:00+01:00</published><updated>2019-06-28T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-06-28:/blog/on-dark-souls.html</id><summary type="html">&lt;figure&gt;
+&lt;/div&gt;</content><category term="Games"></category><category term="D&amp;D"></category></entry><entry><title>On Dark Souls</title><link href="https://nobodyisthere.github.io/blog/on-dark-souls.html" rel="alternate"></link><published>2019-06-28T00:00:00+01:00</published><updated>2019-06-28T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2019-06-28:/blog/on-dark-souls.html</id><summary type="html">&lt;figure&gt;
     &lt;img src="https://nobodyisthere.github.io/blog/images/ds.jpg" alt="Dark Souls: Prepare To Die Edition"/&gt;
     &lt;figcaption&gt;FromSoftware&amp;rsquo;s &lt;em&gt;Dark Souls: Prepare To Die Edition&lt;/em&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1674,7 +1673,6 @@ A creature restrained by the patrons can use its action to make a &lt;span class
     &lt;img src="https://nobodyisthere.github.io/blog/images/ds_bayo.jpg" alt="Bayonetta poses in the moonlight."/&gt;
     &lt;figcaption&gt;Bayonetta, from &lt;em&gt;Bayonetta.&lt;/em&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
-
 &lt;p&gt;In &lt;em&gt;Dark Souls&lt;/em&gt;, you are a pathetic nobody, and the game reinforces that feeling. That feeling is core to &lt;em&gt;Dark Souls&lt;/em&gt;, and changing it would be a mistake. It isn’t an enjoyable feeling, but that’s okay. I’m not saying that there isn’t a place in games for feelings that aren’t enjoyable. My point is that because I didn’t enjoy fighting in &lt;em&gt;Dark Souls&lt;/em&gt;, I didn’t feel any motivation to get better at fighting in &lt;em&gt;Dark Souls&lt;/em&gt;, because the reward was just more of the thing that I didn’t&amp;nbsp;enjoy.&lt;/p&gt;
 &lt;p&gt;When I think about other skill-based games I’ve put hundreds of hours into, like &lt;em&gt;osu!&lt;/em&gt; and &lt;em&gt;Overwatch&lt;/em&gt;, it’s the same story: there was always something about the core gameplay that was enjoyable, and that’s what made me to want to&amp;nbsp;improve.&lt;/p&gt;
 &lt;p&gt;So I suppose the feeling of improvement on its own isn’t enough for me. What about the feeling of triumph when you overcome a&amp;nbsp;challenge?&lt;/p&gt;
@@ -1704,51 +1702,35 @@ A creature restrained by the patrons can use its action to make a &lt;span class
         &lt;p&gt;Image: &lt;em&gt;Sekiro: Shadows Die&amp;nbsp;Twice&lt;/em&gt;&lt;/p&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
-
 &lt;p&gt;&lt;em&gt;Sekiro&lt;/em&gt; brings two important additions to the series. First, it has a proper story, and gives the player character real motivation for their actions. Second, and perhaps more importantly, movement and combat &lt;em&gt;look fun&lt;/em&gt;. Combat in &lt;em&gt;Dark Souls&lt;/em&gt; is dull and slow, and it looks dull and slow. Movement options are limited to a casual jog, and a slightly faster casual jog. In &lt;em&gt;Sekiro&lt;/em&gt;, the player character can jump and swing about the levels, dashing over rooftops or sneaking up on unsuspecting enemies. With fun gameplay and a proper motivation for the player character, perhaps &lt;em&gt;Sekiro&lt;/em&gt; will open the door for me to finally understand &lt;em&gt;Dark Souls&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Or perhaps not. Who&amp;nbsp;knows.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;This past year, I have often felt guilty for not enjoying &lt;em&gt;Dark Souls&lt;/em&gt;. I felt like I was missing something. Moreover, I felt that I was missing &lt;em&gt;out&lt;/em&gt; on something. Now, however, I think I finally understand &lt;em&gt;why&lt;/em&gt; I didn’t enjoy it, and why &lt;em&gt;Dark Souls&lt;/em&gt; simply isn’t for me. Now, at least until I play &lt;em&gt;Sekiro&lt;/em&gt;, I can finally move&amp;nbsp;on.&lt;/p&gt;
 &lt;div class="footnotes"&gt;
     This post was also published in &lt;a href="https://nouse.co.uk/2019/07/03/on-dark-souls"&gt;&lt;em&gt;Nouse&lt;/em&gt;&lt;/a&gt;.
-&lt;/div&gt;</content><category term="Dark Souls"></category></entry><entry><title>Meaningless Game Awards 2017</title><link href="https://nobodyisthere.github.io/blog/meaningless-game-awards-2017.html" rel="alternate"></link><published>2018-01-17T00:00:00+00:00</published><updated>2018-01-17T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2018-01-17:/blog/meaningless-game-awards-2017.html</id><summary type="html">&lt;figure&gt;
+&lt;/div&gt;</content><category term="Games"></category><category term="Dark Souls"></category></entry><entry><title>Meaningless Game Awards 2017</title><link href="https://nobodyisthere.github.io/blog/meaningless-game-awards-2017.html" rel="alternate"></link><published>2018-01-17T00:00:00+00:00</published><updated>2018-01-17T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2018-01-17:/blog/meaningless-game-awards-2017.html</id><content type="html">&lt;figure&gt;
     &lt;iframe src="https://www.youtube.com/embed/uWTvrKIjuVg?feature=oembed" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0"&gt;&lt;/iframe&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;If you want to hear me and my friends discussing games for two and a half hours, for some&amp;nbsp;reason.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://drive.google.com/file/d/1gTJT2C8AOT7QjzVlvwRduLVFwfp-AuHD/view?usp=sharing"&gt;You can find an &lt;span class="caps"&gt;MP3&lt;/span&gt; version here&lt;/a&gt;.&lt;/p&gt;</summary><content type="html">&lt;figure&gt;
-    &lt;iframe src="https://www.youtube.com/embed/uWTvrKIjuVg?feature=oembed" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0"&gt;&lt;/iframe&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;If you want to hear me and my friends discussing games for two and a half hours, for some&amp;nbsp;reason.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://drive.google.com/file/d/1gTJT2C8AOT7QjzVlvwRduLVFwfp-AuHD/view?usp=sharing"&gt;You can find an &lt;span class="caps"&gt;MP3&lt;/span&gt; version here&lt;/a&gt;.&lt;/p&gt;</content><category term="Podcast"></category></entry><entry><title>Pulse bomb tip</title><link href="https://nobodyisthere.github.io/blog/pulse-bomb-tip.html" rel="alternate"></link><published>2017-07-01T00:00:00+01:00</published><updated>2017-07-01T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-07-01:/blog/pulse-bomb-tip.html</id><summary type="html">&lt;figure&gt;
+&lt;p&gt;&lt;a href="https://drive.google.com/file/d/1gTJT2C8AOT7QjzVlvwRduLVFwfp-AuHD/view?usp=sharing"&gt;You can find an &lt;span class="caps"&gt;MP3&lt;/span&gt; version here&lt;/a&gt;.&lt;/p&gt;</content><category term="Games"></category><category term="Podcast"></category></entry><entry><title>Pulse bomb tip</title><link href="https://nobodyisthere.github.io/blog/pulse-bomb-tip.html" rel="alternate"></link><published>2017-07-01T00:00:00+01:00</published><updated>2017-07-01T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-07-01:/blog/pulse-bomb-tip.html</id><content type="html">&lt;figure&gt;
     &lt;iframe src="https://www.youtube.com/embed/FvrfPRuJjB8?feature=oembed" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0"&gt;&lt;/iframe&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here’s a quick tip for Tracer players. I was wondering how the pros always manage to stick pulse bombs the instant they blink&amp;nbsp;in.&lt;/p&gt;
 &lt;p&gt;Well, if you were wondering the same thing, wonder no&amp;nbsp;more.&lt;/p&gt;
-&lt;p&gt;Hope this&amp;nbsp;helps!&lt;/p&gt;</summary><content type="html">&lt;figure&gt;
-    &lt;iframe src="https://www.youtube.com/embed/FvrfPRuJjB8?feature=oembed" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0"&gt;&lt;/iframe&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Here’s a quick tip for Tracer players. I was wondering how the pros always manage to stick pulse bombs the instant they blink&amp;nbsp;in.&lt;/p&gt;
-&lt;p&gt;Well, if you were wondering the same thing, wonder no&amp;nbsp;more.&lt;/p&gt;
-&lt;p&gt;Hope this&amp;nbsp;helps!&lt;/p&gt;</content><category term="Overwatch"></category></entry><entry><title>Nap time</title><link href="https://nobodyisthere.github.io/blog/nap-time.html" rel="alternate"></link><published>2017-06-11T00:00:00+01:00</published><updated>2017-06-11T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-06-11:/blog/nap-time.html</id><summary type="html">&lt;figure&gt;
+&lt;p&gt;Hope this&amp;nbsp;helps!&lt;/p&gt;</content><category term="Games"></category><category term="Overwatch"></category></entry><entry><title>Nap time</title><link href="https://nobodyisthere.github.io/blog/nap-time.html" rel="alternate"></link><published>2017-06-11T00:00:00+01:00</published><updated>2017-06-11T00:00:00+01:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-06-11:/blog/nap-time.html</id><content type="html">&lt;figure&gt;
     &lt;iframe allowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0" src="https://www.youtube.com/embed/pWtQlKQdOlc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"&gt;&lt;/iframe&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;I thought you might enjoy this video in which Ana puts everyone to&amp;nbsp;sleep.&lt;/p&gt;</summary><content type="html">&lt;figure&gt;
-    &lt;iframe allowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0" src="https://www.youtube.com/embed/pWtQlKQdOlc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"&gt;&lt;/iframe&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;I thought you might enjoy this video in which Ana puts everyone to&amp;nbsp;sleep.&lt;/p&gt;</content><category term="Overwatch"></category></entry><entry><title>Previously…</title><link href="https://nobodyisthere.github.io/blog/previously.html" rel="alternate"></link><published>2017-02-26T00:00:00+00:00</published><updated>2017-02-26T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-02-26:/blog/previously.html</id><summary type="html">&lt;p&gt;I like to &lt;strong&gt;record D&amp;amp;D sessions&lt;/strong&gt; that I run. For me, it’s way better than taking notes, giving me less to think about during the session. Of course, this means that I have to listen back to a 3+ hour recording afterwards, but it’s good for a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I like to &lt;strong&gt;record D&amp;amp;D sessions&lt;/strong&gt; that I run. For me, it’s way better than taking notes, giving me less to think about during the session. Of course, this means that I have to listen back to a 3+ hour recording afterwards, but it’s good for a number of reasons – self-improvement, inspiration, and remembering small things you’d otherwise have forgotten, to name but a&amp;nbsp;few.&lt;/p&gt;
+&lt;p&gt;I thought you might enjoy this video in which Ana puts everyone to&amp;nbsp;sleep.&lt;/p&gt;</content><category term="Games"></category><category term="Overwatch"></category></entry><entry><title>Previously…</title><link href="https://nobodyisthere.github.io/blog/previously.html" rel="alternate"></link><published>2017-02-26T00:00:00+00:00</published><updated>2017-02-26T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-02-26:/blog/previously.html</id><summary type="html">&lt;p&gt;I like to &lt;strong&gt;record D&amp;amp;D sessions&lt;/strong&gt; that I run. For me, it’s way better than taking notes, giving me less to think about during the session. Of course, this means that I have to listen back to a 3+ hour recording afterwards, but it’s good for a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I like to &lt;strong&gt;record D&amp;amp;D sessions&lt;/strong&gt; that I run. For me, it’s way better than taking notes, giving me less to think about during the session. Of course, this means that I have to listen back to a 3+ hour recording afterwards, but it’s good for a number of reasons – self-improvement, inspiration, and remembering small things you’d otherwise have forgotten, to name but a&amp;nbsp;few.&lt;/p&gt;
 &lt;p&gt;But there’s more that you can do once you have these recordings. One thing I like to do is to make recap videos, and play them at the start of each&amp;nbsp;session:&lt;/p&gt;
 &lt;figure&gt;
     &lt;iframe class="embed_iframe" scrolling="no" allowfullscreen="allowfullscreen" mozallowfullscreen="" webkitallowfullscreen="" style="width: 100%; height: 394px;" width="700" height="394" frameborder="0" src="https://www.youtube.com/embed/mEyBNYlDKIw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I think it’s a really nice way to get everyone back up to speed and into the right mindset. It also means that you can jump right into gameplay very quickly after the start of a&amp;nbsp;session.&lt;/p&gt;
-&lt;p&gt;If you have any other ideas for getting the most out of your recordings, let me&amp;nbsp;know!&lt;/p&gt;</content><category term="D&amp;D"></category></entry><entry><title>Give your players control</title><link href="https://nobodyisthere.github.io/blog/give-your-players-control.html" rel="alternate"></link><published>2017-02-25T00:00:00+00:00</published><updated>2017-02-25T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-02-25:/blog/give-your-players-control.html</id><summary type="html">&lt;p&gt;My players are&amp;nbsp;great.&lt;/p&gt;
+&lt;p&gt;If you have any other ideas for getting the most out of your recordings, let me&amp;nbsp;know!&lt;/p&gt;</content><category term="Games"></category><category term="D&amp;D"></category></entry><entry><title>Give your players control</title><link href="https://nobodyisthere.github.io/blog/give-your-players-control.html" rel="alternate"></link><published>2017-02-25T00:00:00+00:00</published><updated>2017-02-25T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2017-02-25:/blog/give-your-players-control.html</id><summary type="html">&lt;p&gt;My players are&amp;nbsp;great.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;So &lt;em&gt;D&amp;amp;D&lt;/em&gt;  – and other tabletop RPGs – are collaborative storytelling games. A group of people create a story together, through play. There are many ways to do this. Often, DMs/GMs (myself included) see their role as something like a computer game&amp;#8217;s level designer. The …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My players are&amp;nbsp;great.&lt;/p&gt;
 &lt;hr&gt;
@@ -1776,14 +1758,14 @@ A creature restrained by the patrons can use its action to make a &lt;span class
 
 &lt;p&gt;The dwarf whom he described was from his character’s backstory. What followed was far more interesting (and emotional) than anything I could have planned. It has permanently changed that character, and has set him on a completely different path from anything I think either of us had&amp;nbsp;imagined.&lt;/p&gt;
 &lt;p&gt;So in summary, the experiment was a great success! Fantastic. I will definitely be doing this again, and I would encourage you to try it with your group. It won’t suit all styles, of course, but  I’m sure that for many, it would be a very useful and fun addition to the&amp;nbsp;game.&lt;/p&gt;
-&lt;p&gt;As a final word of caution, don’t do this if you don’t know your players at all. Some players really don’t like to be put on the spot, especially in front of people they don’t know all that well. Know your group. Take Barker’s advice, and start&amp;nbsp;small.&lt;/p&gt;</content><category term="D&amp;D"></category></entry><entry><title>Armour of Chemosh</title><link href="https://nobodyisthere.github.io/blog/armour-of-chemosh.html" rel="alternate"></link><published>2016-12-05T00:00:00+00:00</published><updated>2016-12-05T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2016-12-05:/blog/armour-of-chemosh.html</id><summary type="html">&lt;p&gt;Earlier this year, I ran my first &lt;em&gt;D&amp;amp;D&lt;/em&gt; campaign. With little experience of &lt;em&gt;D&amp;amp;D&lt;/em&gt; or other tabletop RPGs (I’d played a couple of sessions of 3.5e, and a few one-shots in other systems), I decided to jump into 5th edition at the deep end with a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Earlier this year, I ran my first &lt;em&gt;D&amp;amp;D&lt;/em&gt; campaign. With little experience of &lt;em&gt;D&amp;amp;D&lt;/em&gt; or other tabletop RPGs (I’d played a couple of sessions of 3.5e, and a few one-shots in other systems), I decided to jump into 5th edition at the deep end with a campaign and world of my own. I’ll save my general  experiences for another post, though, because today I want to talk about  the first magic item I created: a cursed suit of&amp;nbsp;armour.&lt;/p&gt;
+&lt;p&gt;As a final word of caution, don’t do this if you don’t know your players at all. Some players really don’t like to be put on the spot, especially in front of people they don’t know all that well. Know your group. Take Barker’s advice, and start&amp;nbsp;small.&lt;/p&gt;</content><category term="Games"></category><category term="D&amp;D"></category></entry><entry><title>Armour of Chemosh</title><link href="https://nobodyisthere.github.io/blog/armour-of-chemosh.html" rel="alternate"></link><published>2016-12-05T00:00:00+00:00</published><updated>2016-12-05T00:00:00+00:00</updated><author><name>En</name></author><id>tag:nobodyisthere.github.io,2016-12-05:/blog/armour-of-chemosh.html</id><summary type="html">&lt;p&gt;Earlier this year, I ran my first &lt;em&gt;D&amp;amp;D&lt;/em&gt; campaign. With little experience of &lt;em&gt;D&amp;amp;D&lt;/em&gt; or other tabletop RPGs (I’d played a couple of sessions of 3.5e, and a few one-shots in other systems), I decided to jump into 5th edition at the deep end with a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Earlier this year, I ran my first &lt;em&gt;D&amp;amp;D&lt;/em&gt; campaign. With little experience of &lt;em&gt;D&amp;amp;D&lt;/em&gt; or other tabletop RPGs (I’d played a couple of sessions of 3.5e, and a few one-shots in other systems), I decided to jump into 5th edition at the deep end with a campaign and world of my own. I’ll save my general  experiences for another post, though, because today I want to talk about  the first magic item I created: a cursed suit of&amp;nbsp;armour.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;A note to anyone familiar with &lt;em&gt;D&amp;amp;D&lt;/em&gt; and its settings: I’m &lt;em&gt;not&lt;/em&gt;. The party’s cleric was a follower of Mishakal from the Dragonlance setting (I let them choose any gods they wanted), so I associated the armour with Chemosh, assuming that he was the ‘anti-Mishakal’. Hope I got that&amp;nbsp;right.&lt;/p&gt;
 &lt;p&gt;Anyway, this armour was to be the main focus of the first ‘act’ of the campaign. It was a golden suit of plate armour with no helmet. The cleric’s player had been asking me during the week  about when they’d get the opportunity to go shopping for some armour, so I knew that it would be the cleric who would touch the armour first, triggering the&amp;nbsp;curse.&lt;/p&gt;
 &lt;p&gt;But what was this curse? I’ll show you my notes, explain my thinking, and discuss how it played out in the game; what worked, and what&amp;nbsp;didn’t.&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="rpg"&gt;
-    &lt;h3&gt;Armour of Chemosh&lt;/h3&gt;
+    &lt;h3&gt;Armour of&amp;nbsp;Chemosh&lt;/h3&gt;
     &lt;p&gt;The Armour of Chemosh is a golden suit of plate armour, without a helmet. It appears to shine with its own golden light, though seeing it in the dark reveals that it does not actually provide any illumination. It does not rust, dent or break, and never loses its&amp;nbsp;shine.&lt;/p&gt;
     &lt;p&gt;A person who touches the armour while no one is wearing it is cursed by it. Only one person may be cursed by this armour at a time. Unlike other cursed items, the armour can be removed, though this does not break the&amp;nbsp;curse.&lt;/p&gt;
     &lt;p&gt;A cursed person has a ‘curse level’ which begins at 1. If a person who was previously cursed by this armour touches it again, the curse transfers to them, with their previous curse&amp;nbsp;level.&lt;/p&gt;
@@ -1863,4 +1845,4 @@ A creature restrained by the patrons can use its action to make a &lt;span class
 &lt;hr&gt;
 &lt;p&gt;In my game, the cleric had a run of bad luck near the start, where practically all of her spells ended up summoning Shadows (in reality this was only about 3 spells, but since they were consecutive it felt like more). This really put her off casting spells for a while, until much later when she had no choice but to risk it. Luckily, she succeeded, and regained her confidence. The players were convinced that I had changed the&amp;nbsp;rules.&lt;/p&gt;
 &lt;p&gt;While it all worked out well in the end, I did get some feedback to the effect that it wasn’t cool that I basically robbed our cleric of her abilities for so long. Often, people choose spellcasting classes because they want to cast spells (surprise!), so messing with that is a bit of a risk. Know your players, I suppose. I could perhaps have done with getting to know mine a little better before I landed them with something like&amp;nbsp;this.&lt;/p&gt;
-&lt;p&gt;Anyway, feel free to reuse and recycle this item; please let me know how it goes if you&amp;nbsp;do!&lt;/p&gt;</content><category term="D&amp;D"></category></entry></feed>
+&lt;p&gt;Anyway, feel free to reuse and recycle this item; please let me know how it goes if you&amp;nbsp;do!&lt;/p&gt;</content><category term="Games"></category><category term="D&amp;D"></category></entry></feed>
