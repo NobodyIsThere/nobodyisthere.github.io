@@ -1,0 +1,137 @@
+:root
+{
+  font-size: 12pt;
+  
+  --button-depth: 0.25em;
+  --sans-serif: sans-serif;
+}
+
+body
+{
+  margin: 0;
+  padding: 0;
+}
+
+#content
+{
+  padding: 1rem;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#counters
+{
+  display: contents;
+}
+
+.counter,
+#addCounter
+{
+  flex: 1;
+  min-width: 12rem;
+  max-width: 30rem;
+}
+
+.counter
+{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  
+  text-align: center;
+}
+
+.counter > button
+{
+  flex-grow: 1;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.counter h2
+{
+  margin: 0;
+  font-size: 2em;
+  margin-top: 1rem;
+}
+
+.counter .value
+{
+  font-family: var(--sans-serif);
+  font-weight: bold;
+  font-size: 10vmax;
+}
+
+.counter button:first-of-type
+{
+  --colour: hsl(120 30% 70%);
+  color: white;
+}
+
+.counter button:last-of-type
+{
+  --colour: hsl(0 30% 70%);
+  color: white;
+}
+
+button
+{
+  --colour: #eeeeef;
+  
+  position: relative;
+  
+  background-color: var(--colour);
+  font-size: 2em;
+  font-weight: bold;
+  border: none;
+}
+
+button::after
+{
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--button-depth);
+  background-color: var(--colour);
+  filter: brightness(0.85);
+  transform: translateY(var(--button-depth));
+}
+
+button:active
+{
+  transform: translateY(var(--button-depth));
+  box-shadow: none;
+}
+
+button:active::after
+{
+  height: 0;
+}
+
+@media (max-width: 28rem)
+{
+  .counter
+  {
+    max-width: 100%;
+  }
+  
+  .counter h2
+  {
+    min-width: 33%;
+    max-width: calc(100% - 7rem);
+  }
+  
+  .counter button
+  {
+    flex-shrink: 0;
+    flex-basis: 100%;
+  }
+}
