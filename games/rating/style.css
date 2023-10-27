@@ -1,0 +1,125 @@
+:root
+{
+  font-family: sans-serif;
+}
+
+.wrapper
+{
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+button, input, select
+{
+  font-size: 1em;
+}
+
+input
+{
+  text-align: center;
+}
+
+.controls
+{
+  display: flex;
+}
+
+.controls input
+{
+  width: 2em;
+}
+
+.controls :is(input, select):last-of-type
+{
+  margin-left: auto;
+}
+
+.controls select
+{
+  width: auto;
+}
+
+select
+{
+  padding: 0.5em;
+  width: 100%;
+  background-color: white;
+  border: solid 2px #aaa;
+  border-radius: 5px;
+}
+
+.main
+{
+  display: flex;
+}
+
+.main input
+{
+  margin-inline: auto;
+  font-size: 2em;
+  width: 2em;
+}
+
+.main select
+{
+  width: auto;
+  margin-inline: auto;
+}
+
+.preview
+{
+  padding-block: 1em;
+  font-size: 2em;
+  text-align: center;
+}
+
+.preview .row + .row
+{
+  margin-top: 0.5em;
+}
+
+.widget
+{
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 2em;
+}
+
+#addWidgetContainer
+{
+  display: flex;
+  gap: 1em;
+}
+
+.element
+{
+  display: inline-flex;
+  width: 3em;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+  aspect-ratio: 1/1;
+  border: solid 5px #caa;
+  background-color: #daa;
+}
+
+.element .atomicNumber
+{
+  position: absolute;
+  top: 0.25em;
+  left: 0.25em;
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.element .symbol
+{
+  font-size: 1.5em;
+}
+
+.element .name
+{
+  display: block;
+  font-size: 0.5em;
+  margin-inline: -1em;
+}
