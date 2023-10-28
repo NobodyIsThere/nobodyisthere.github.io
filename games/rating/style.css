@@ -19,6 +19,14 @@ input
   text-align: center;
 }
 
+span.checkbox
+{
+  display: flex;
+  align-items: center;
+  margin-inline: 1em;
+  gap: 0.25em;
+}
+
 .controls
 {
   display: flex;
@@ -27,6 +35,11 @@ input
 .controls input
 {
   width: 2em;
+}
+
+.checkbox input
+{
+  width: auto;
 }
 
 .controls :is(input, select):last-of-type
@@ -88,6 +101,20 @@ select
 {
   display: flex;
   gap: 1em;
+}
+
+.star
+{
+  position: relative;
+  display: inline-block;
+}
+
+.star .half
+{
+  position: absolute;
+  inset: 0;
+  right: 50%;
+  overflow: hidden;
 }
 
 .element

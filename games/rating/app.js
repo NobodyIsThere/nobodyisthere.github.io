@@ -22,6 +22,11 @@ window.closestValue = function(values, targetValue)
     return closestValue;
 };
 
+function RoundToNearest(value, fraction)
+{
+    return Math.round(value/fraction)*fraction;
+}
+
 const widgets =
 {
     'numeric':
@@ -38,7 +43,7 @@ const widgets =
         displayName: 'Stars',
         min: 1,
         max: 5,
-        round: true,
+        round: 1,
         preview: (current, min, max, t) => {
             let string = '';
             for (let i=0; i<current; ++i)
@@ -52,6 +57,35 @@ const widgets =
             return string;
         }
     },
+    'starsHalf':
+    {
+        category: 'Basic',
+        displayName: 'Stars with half-stars',
+        min: 0.5,
+        max: 5,
+        round: 0.5,
+        preview: (current, min, max, t) => {
+            let string = '';
+            const wholeStars = Math.trunc(current);
+            for (let i=0; i<wholeStars; ++i)
+            {
+                string += '★';
+            }
+            if (wholeStars < current)
+            {
+                string += '<div class="star">☆<div class="half">★</div></div>';
+            }
+            else if (current < max)
+            {
+                string += '☆';
+            }
+            for (let i=current+1; i<max; ++i)
+            {
+                string += '☆';
+            }
+            return string;
+        }
+    },
     'letters':
     {
         category: 'Linguistic',
@@ -59,9 +93,21 @@ const widgets =
         min: 0,
         max: 25,
         valueSelect: true,
-        data: 'latin.js',
+        data: 'alphabet.js',
         options: "latin",
         transformFunction: "latin",
+        preview: (current, min, max, t) => min === 0 ? `${t(current)}/${t(max)}` : `${t(current)} on a ${t(min)}–${t(max)} scale`
+    },
+    'lettersGreek':
+    {
+        category: 'Linguistic',
+        displayName: 'Alphabet (Greek)',
+        min: 0,
+        max: 23,
+        valueSelect: true,
+        data: 'alphabet.js',
+        options: "greek",
+        transformFunction: "greek",
         preview: (current, min, max, t) => min === 0 ? `${t(current)}/${t(max)}` : `${t(current)} on a ${t(min)}–${t(max)} scale`
     },
     'planetDistance':
@@ -113,8 +159,8 @@ const widgets =
         options: "elements",
         transformFunction: "elements",
         preview: (current, min, max, t) => {
-            const currentElementDiv = `<div class="element"><span class="atomicNumber">${elementData[current-1].value}</span><span class="symbol">${elementData[current-1].symbol}</span><span class="name">${t(current)}</span></div>`;
-            const maxElementDiv = `<div class="element"><span class="atomicNumber">${elementData[max-1].value}</span><span class="symbol">${elementData[max-1].symbol}</span><span class="name">${t(max)}</span></div>`;
+            const currentElementDiv = `<div class="element"><span class="atomicNumber">${window.elementData[current-1].value}</span><span class="symbol">${window.elementData[current-1].symbol}</span><span class="name">${t(current)}</span></div>`;
+            const maxElementDiv = `<div class="element"><span class="atomicNumber">${window.elementData[max-1].value}</span><span class="symbol">${window.elementData[max-1].symbol}</span><span class="name">${t(max)}</span></div>`;
             if (min === 1)
             {
                 return `<div class="row">${currentElementDiv} / ${maxElementDiv}</div>
@@ -126,6 +172,18 @@ const widgets =
                     <div class="row">${t(current)} on a ${t(min)}–${t(max)} scale`;
             }
         }
+    },
+    'nfs':
+    {
+        category: 'Entertainment',
+        displayName: 'Need for Speed game by release date',
+        min: 1994.67,
+        max: 2022.92,
+        valueSelect: true,
+        data: 'nfs.js',
+        options: "nfsYears",
+        transformFunction: "nfsYears",
+        preview: (current, min, max, t) => min === 1994.67 ? `<cite>${t(current)}</cite> / <cite>${t(max)}</cite>` : `<cite>${t(current)}</cite> on a <cite>${t(min)}</cite>–<cite>${t(max)}</cite> scale`
     }
 };
 
@@ -167,6 +225,7 @@ class RatingWidget
     {
         const div = HTML.element('div', this.parent, 'widget');
         this.element = div;
+        HTML.heading(2, this.template.displayName, div);
         const params = HTML.element('div', div, 'controls');
         if (!this.template.disableChangingMin)
         {
@@ -181,17 +240,17 @@ class RatingWidget
             this.inputMin.value = this.min;
             this.inputMin.addEventListener('change', () => this.setLimits());
         }
-        const reverseContainer = HTML.element('span', params);
-        const reverse = HTML.element('input', reverseContainer);
-        reverse.setAttribute('type', 'checkbox');
-        reverse.id = `reverse${this.id}`;
-        const reverseLabel = HTML.element('label', reverseContainer);
-        reverseLabel.setAttribute('for', `reverse${this.id}`);
-        reverseLabel.innerHTML = 'Reverse';
-        reverse.addEventListener('change', () => {
-            this.reverse = reverse.checked ? true : false;
+        HTML.checkbox(params, 'Reverse', `reverse${this.id}`, (checked) => {
+            this.reverse = checked;
             this.setCurrent();
         });
+        if (!this.round && !this.template.valueSelect)
+        {
+            HTML.checkbox(params, 'Round', `round${this.id}`, (checked) => {
+                this.round = checked;
+                this.setCurrent();
+            });
+        }
         if (!this.template.disableChangingMax)
         {
             if (this.template.valueSelect)
@@ -281,11 +340,16 @@ class RatingWidget
             this.inputCurrent.value = this.normalisedValueToCurrentValue(this.normalisedValue);
             if (this.round)
             {
-                this.inputCurrent.value = Math.round(this.inputCurrent.value);
+                this.inputCurrent.value = RoundToNearest(this.inputCurrent.value, this.round);
             }
             else
             {
-                this.inputCurrent.value = Math.round(this.inputCurrent.value*100)/100
+                this.inputCurrent.value = RoundToNearest(this.inputCurrent.value, 0.01);
+                const index = this.inputCurrent.value.indexOf('.');
+                if (index && index < this.inputCurrent.value.length - 3)
+                {
+                    this.inputCurrent.value = this.inputCurrent.value.substring(0, index+3);
+                }
             }
         }
         this.setCurrent();
@@ -329,7 +393,7 @@ class RatingConverter
         groups.forEach(group => {
             const groupElement = HTML.element('optgroup', this.addWidgetSelect);
             groupElement.label = group;
-            Object.keys(widgets).filter(key => widgets[key].category === group).sort((a, b) => a.localeCompare(b)).forEach(key => {
+            Object.keys(widgets).filter(key => widgets[key].category === group).sort((a, b) => widgets[a].displayName.localeCompare(widgets[b].displayName)).forEach(key => {
                 const option = HTML.element('option', groupElement);
                 option.value = key;
                 option.innerHTML = widgets[key].displayName;

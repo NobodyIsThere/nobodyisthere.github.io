@@ -57,6 +57,20 @@ class HTML
         return el;
     }
 
+    static checkbox(parent, label, id, callback)
+    {
+        const container = HTML.element('span', parent, 'checkbox');
+        const inputElement = HTML.element('input', container);
+        inputElement.setAttribute('type', 'checkbox');
+        inputElement.id = id;
+        const labelElement = HTML.element('label', container);
+        labelElement.setAttribute('for', id);
+        labelElement.innerHTML = label;
+        inputElement.addEventListener('change', () => {
+            inputElement.checked ? callback(true) : callback(false);
+        });
+    }
+
     async modal(id, url)
     {
         if (this.dialogs.hasOwnProperty(id))
