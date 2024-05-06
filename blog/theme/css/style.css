@@ -130,13 +130,28 @@ div.entry-content > *
     padding-right: var(--content-padding);
 }
 
-p
+p, .poem
 {
     margin-top: 1em;
     margin-bottom: 1em;
     line-height: 1.7em;
     font-weight: 300;
     font-weight: var(--light-font-weight);
+}
+
+[indent="1"]
+{
+    margin-left: 1em;
+}
+
+[indent="2"]
+{
+    margin-left: 2em;
+}
+
+[indent="3"]
+{
+    margin-left: 3em;
 }
 
 strong
