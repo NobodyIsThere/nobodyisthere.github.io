@@ -214,6 +214,14 @@ h2
     margin-left: 2.5em;
 }
 
+@media (max-width: 100ch)
+{
+    .game img
+    {
+        display: none;
+    }
+}
+
 /***** BADGES *****/
 #diya + label h3::before, .diya::before
 {
