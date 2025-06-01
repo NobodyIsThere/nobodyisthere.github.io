@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Merriweather;
+    src: url('./Merriweather-Bold.ttf');
+}
+
 :root
 {
     padding: 0;
