@@ -25,6 +25,11 @@ html
     background-position: 50% 0%;
 }
 
+body
+{
+    overflow-x: hidden;
+}
+
 section
 {
     max-width: var(--content-width);
