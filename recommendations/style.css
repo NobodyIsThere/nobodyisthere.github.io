@@ -1,0 +1,313 @@
+:root
+{
+    padding: 0;
+    margin: 0;
+
+    --content-width: 100ch;
+    --background-colour: #d8f3d8;
+    --body-font: Roboto, Helvetica, Arial, sans-serif;
+    --title-font: Merriweather, serif;
+    
+    font-family: var(--body-font);
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+html
+{
+    background-color: var(--background-colour);
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><circle fill="white" cx="5" cy="5" r="2.5"/></svg>');
+    background-size: 100px 100px;
+    background-position: 50% 0%;
+}
+
+section
+{
+    max-width: var(--content-width);
+    margin-inline: auto;
+    margin-block: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: var(--title-font);
+}
+
+p + p
+{
+    margin-top: 0.5em;
+}
+
+ul
+{
+    margin-block: 1em;
+}
+
+ul li
+{
+    margin-left: 1.25em;
+}
+
+.flow
+{
+    margin-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+input[type="checkbox"].fake
+{
+    display: none;
+}
+
+input.fake + label
+{
+    --background-colour: rgb(221, 206, 182);
+    --font-colour: black;
+    --secondary-colour: #d7eed7;
+
+    display: block;
+    flex: 1;
+    min-width: 20ch;
+    cursor: pointer;
+
+    h3
+    {
+        position: relative;
+        top: 0.4em;
+        left: 1.25em;
+        display: inline-block;
+        padding-block: 0.25em;
+        padding-inline: 1em;
+        background-color: var(--background-colour);
+        color: var(--font-colour);
+        transform: rotateZ(-1deg);
+        box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.2);
+        font-size: 1.1em;
+    }
+
+    p
+    {
+        background-color: var(--secondary-colour);
+        padding: 1rem;
+        box-shadow: 0 0.2em 0.25em rgba(0, 0, 0, 0.2);
+    }
+}
+
+input[type="checkbox"].fake:not(:checked) + label
+{
+    filter: grayscale() brightness(0.9) saturate(0.9) contrast(0.9);
+
+    p
+    {
+        box-shadow: none;
+    }
+}
+
+#diya + label, .tags .diya
+{
+    --background-colour: #006e00;
+    --font-colour: #f3f3f3;
+    --secondary-colour: #d7eed7;
+}
+
+#acclaimed + label, .acclaimed
+{
+    --background-colour: rgb(247, 215, 145);
+    --secondary-colour: rgb(245, 229, 205);
+}
+
+#vn + label, .vn
+{
+    --background-colour: #dce;
+    --secondary-colour: rgb(237, 233, 240);
+}
+
+section:first-child h1
+{
+    text-align: center;
+    font-size: 3em;
+}
+
+h1
+{
+    margin-bottom: 1rem;
+}
+
+h2
+{
+    margin-top: 1rem;
+}
+
+.game
+{
+    margin-block: 2rem;
+    position: relative;
+}
+
+.game + .game
+{
+    border-top: dotted 4px #ccc;
+    padding-top: 2rem;
+}
+
+.game h2
+{
+    margin-top: 0;
+}
+
+.tags
+{
+    right: 100%;
+    margin-block: 0.1em;
+    margin-right: 0.5em;
+    top: 0;
+    display: flex;
+    gap: 0.25em;
+    font-size: 0.9em;
+}
+
+.game img
+{
+    max-height: 12em;
+    max-width: 8em;
+    position: absolute;
+    right: 100%;
+    top: -1em;
+    margin-right: 2em;
+    transform: rotateZ(-5deg);
+    box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.2);
+}
+
+.game:nth-of-type(2n) img
+{
+    right: revert;
+    left: 100%;
+    margin-right: revert;
+    margin-left: 2em;
+    transform: rotateZ(5deg);
+}
+
+.game:nth-of-type(4n-1) img
+{
+    transform: rotateZ(2deg);
+    margin-right: 2.5em;
+}
+
+.game:nth-of-type(4n) img
+{
+    transform: rotateZ(-2deg);
+    margin-left: 2.5em;
+}
+
+/***** BADGES *****/
+#diya + label h3::before, .diya::before
+{
+    content: 'D';
+    position: absolute;
+    right: 95%;
+    top: -0.4em;
+    width: 2.25em;
+    height: 2.25em;
+    background-color: var(--background-colour);
+    color: var(--font-colour);
+    border-radius: 50%;
+    border: solid 1px #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.2);
+    font-size: 1.1em;
+}
+
+#acclaimed + label h3::before, .acclaimed::before
+{
+    content: '';
+    position: absolute;
+    right: 95%;
+    top: -0.5em;
+    width: 2.5em;
+    height: 2.5em;
+    background-image: url('https://deadly.crabdance.com:435/images/star.svg');
+    background-size: contain;
+    filter: drop-shadow(0 0.1em 0.25em rgba(0, 0, 0, 0.2));
+    
+}
+
+#vn + label h3::before, .vn::before
+{
+    content: 'VN';
+    position: absolute;
+    right: 95%;
+    top: -0.4em;
+    width: 2.2em;
+    height: 2.2em;
+    background-color: var(--background-colour);
+    color: var(--font-colour);
+    border: solid 1px #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.2);
+    font-size: 1.1em;
+}
+
+.diya::before, .acclaimed::before, .vn::before
+{
+    position: static;
+    font-family: var(--title-font);
+    font-weight: bold;
+    display: none;
+}
+
+.tags span::after
+{
+    background-color: var(--secondary-colour);
+    padding-block: 0.1em;
+    padding-inline: 0.5em;
+}
+
+.tags .diya::after
+{
+    content: '#Diya';
+}
+
+.tags .acclaimed::after
+{
+    content: '#Acclaimed';
+}
+
+.tags .vn::after
+{
+    content: '#VN';
+}
+
+/***** LOGIC *****/
+
+:has(input:not(:checked)) ~ section .game
+{
+    display: none;
+}
+
+:has(input:not(:checked)):has(#diya:checked) ~ section :has(.tags .diya)
+{
+    display: block;
+}
+
+:has(input:not(:checked)):has(#acclaimed:checked) ~ section :has(.tags .acclaimed)
+{
+    display: block;
+}
+
+:has(input:not(:checked)):has(#vn:checked) ~ section :has(.tags .vn)
+{
+    display: block;
+}
